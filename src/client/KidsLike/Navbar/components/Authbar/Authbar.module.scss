@@ -1,0 +1,26 @@
+@import '../../../../../shared/styles/base';
+@import '../../../../../shared/styles/common';
+
+.linkList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  @include flex();
+}
+
+.linkItem:not(:last-child) {
+  border-right: 1px solid $secondary-text-color;
+  padding-right: 15px;
+  margin-right: 15px;
+}
+
+.navLink {
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: $secondary-text-color;
+}
+
+.activeNavLink {
+  color: $primary-text-color;
+}

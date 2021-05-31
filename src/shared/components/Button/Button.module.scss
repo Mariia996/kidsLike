@@ -1,0 +1,30 @@
+@import '../../styles/base';
+@import '../../styles/common';
+
+.btn {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.25;
+  background-color: $primary-bg-color;
+  color: $primary-btn-text-color;
+  text-align: center;
+  outline: none;
+  border: none;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border-radius: 6px;
+  width: 135px;
+  height: 48px;
+  cursor: pointer;
+  @include tablet {
+    & {
+      width: 154px;
+    }
+  }
+  transition: background-color 250ms linear;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: $accent-color;
+}

@@ -1,0 +1,108 @@
+@import '../../../shared/styles/base';
+@import '../../../shared/styles/common';
+
+.title {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.222;
+  text-align: center;
+  color: $primary-text-color;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 40px;
+  @include tablet {
+    & {
+      width: 400px;
+      font-size: 28px;
+      line-height: 1.214;
+    }
+  }
+}
+
+.formContainer {
+  @include tablet {
+    & {
+      width: 400px;
+      padding: 40px;
+      margin-top: 40px;
+      margin-bottom: 30px;
+      margin-right: auto;
+      margin-left: auto;
+      background-color: #fff;
+      box-shadow: 4px 6px 15px rgba(0, 0, 0, 0.1);
+      border-radius: 6px;
+    }
+  }
+}
+
+.text {
+  margin-bottom: 20px;
+  color: $secondary-text-color;
+}
+
+.googleBtn {
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.214;
+  letter-spacing: 0.02em;
+  color: $primary-text-color;
+  background-color: $secondary-bg-color;
+  margin-bottom: 30px;
+  width: 150px;
+  height: 42px;
+}
+
+.googleIcon {
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.authForm {
+}
+
+.inputLabel {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.star {
+  color: #eb5757;
+}
+
+.inputField {
+  display: block;
+  padding: 12px 20px;
+
+  width: 100%;
+  // max-width: 240px;
+  margin-bottom: 22px;
+  background-color: $secondary-bg-color;
+  border: none;
+  box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.15);
+}
+
+.inputField::placeholder {
+  font-size: 14px;
+  line-height: 1.214;
+  color: $third-text-color;
+}
+
+.passPlaceholder::placeholder {
+  font-size: 22px;
+  line-height: 1.25;
+  color: $primary-text-color;
+}
+
+.btn:not(:last-child) {
+  margin-right: 10px;
+  @include tablet {
+    & {
+      margin-right: 12px;
+    }
+  }
+}
+
+.btnContainer {
+  display: flex;
+}
