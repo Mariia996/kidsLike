@@ -1,0 +1,59 @@
+@import '../../../../shared/styles/base';
+@import '../../../../shared/styles/common';
+
+.container {
+  padding-top: 20px;
+}
+
+.title {
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.222;
+  margin-bottom: 10px;
+  @include tablet {
+    margin-bottom: 40px;
+  }
+}
+
+.select {
+  display: block;
+  margin: 0 auto;
+  padding: 6px 0px 6px 15px;
+  width: 155px;
+
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 1.2;
+  letter-spacing: 0.2em;
+
+  border: 1px solid $primary-bg-color;
+  border-radius: 6px;
+}
+
+.morePrizes {
+  @include mobile-end {
+    display: none;
+  }
+}
+
+.footerContainer {
+  margin-bottom: 24px;
+  @include tablet {
+    margin-bottom: 30px;
+  }
+  @include desktop {
+    margin-bottom: 50px;
+  }
+}
+
+.scoreBarContainer {
+  @include mobile-end {
+    display: none;
+  }
+}
+.scoreBarContainerMob {
+  @include tablet {
+    display: none;
+  }
+}
