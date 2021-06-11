@@ -1,0 +1,12 @@
+@import '../../../../../shared/styles/base';
+
+.contactsList {
+  @include tablet {
+    @include grid(2, repeat);
+    grid-gap: 20px;
+  }
+
+  @include desktop {
+    @include grid(4, repeat);
+  }
+}

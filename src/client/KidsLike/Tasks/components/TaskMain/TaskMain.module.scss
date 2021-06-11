@@ -1,0 +1,60 @@
+@import '../../../../../shared/styles/base';
+
+.tasksContainer {
+  @include tablet {
+    margin-top: 102px;
+    padding-bottom: 58px;
+    width: 100%;
+  }
+  @include desktop {
+    @include flex();
+    margin-top: 94px;
+    padding-bottom: 0;
+  }
+}
+
+.imgDesk {
+  @include tablet-end {
+    display: none;
+  }
+}
+
+.dayContainer {
+  flex-basis: 100%;
+  @include mobile-end {
+    margin-top: 60px;
+  }
+}
+
+.noTasks {
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.planningBtn {
+  @include flex(center, center);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  height: 48px;
+  max-width: 220px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 60px;
+  text-decoration: none;
+  color: $white-color;
+  background-color: $primary-bg-color;
+  border-radius: 6px;
+  transition: background-color 250ms linear;
+  @include tablet {
+    margin-bottom: 102px;
+  }
+  @include desktop {
+    margin-bottom: 40px;
+  }
+}
+
+.planningBtn:hover,
+.planningBtn:focus {
+  background-color: $accent-color;
+}

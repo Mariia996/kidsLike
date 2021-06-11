@@ -1,3 +1,9 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
 html,
 body,
 div,
@@ -71,6 +77,7 @@ header,
 hgroup,
 menu,
 nav,
+input,
 output,
 ruby,
 section,
@@ -79,11 +86,9 @@ time,
 mark,
 audio,
 video {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%;
   font: inherit;
   vertical-align: baseline;
 }

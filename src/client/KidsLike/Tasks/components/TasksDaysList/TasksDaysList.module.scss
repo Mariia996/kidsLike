@@ -1,0 +1,122 @@
+@import '../../../../../shared/styles/base';
+
+.daysMenu {
+  @include mobile-end {
+    @include flex();
+    flex-direction: column-reverse;
+  }
+  @include tablet {
+    @include flex(center, center);
+    padding: 22px 0;
+    margin-bottom: 40px;
+    background-color: $primary-bg-color;
+  }
+  @include desktop {
+    align-items: start;
+    justify-content: flex-end;
+    padding: 0;
+    height: 100%;
+    background-color: inherit;
+  }
+}
+
+.weekTabletMob {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 14px;
+  line-height: 1.214;
+  @include tablet {
+    margin-right: 28px;
+    margin-bottom: 0;
+  }
+  @include desktop {
+    display: none;
+  }
+}
+
+.btnList {
+  @include flex(center, center);
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  margin-top: -4px;
+  margin-left: -4px;
+  @include tablet {
+    margin-bottom: 0;
+    margin-top: -16px;
+    margin-left: -16px;
+  }
+  @include desktop {
+    display: block;
+    margin-bottom: 0;
+    margin-top: 140px;
+    margin-left: 0;
+  }
+}
+
+.btnItem {
+  margin-top: 4px;
+  margin-left: 4px;
+  @include tablet {
+    margin-top: 16px;
+    margin-left: 16px;
+  }
+  @include desktop {
+    margin-top: 0;
+    margin-left: 0;
+  }
+}
+
+.btnItem:not(:last-child) {
+  @include desktop {
+    margin-bottom: 6px;
+  }
+}
+
+.daysBtn {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  font-weight: 700;
+  width: 35px;
+  height: 24px;
+  background-color: rgba(255, 188, 51, 0.5);
+  border: none;
+  border-radius: 4px;
+  @include tablet {
+    width: 40px;
+    height: 26px;
+    background-color: rgba(253, 253, 253, 0.5);
+  }
+  @include desktop {
+    text-align: start;
+    width: 190px;
+    height: 42px;
+    padding-left: 27px;
+    font-size: 14px;
+    line-height: 1.214;
+    border-radius: 6px 0px 0px 6px;
+  }
+}
+
+.daysBtn:hover,
+.daysBtn:focus,
+.daysBtn:active {
+  background-color: $accent-color;
+  @include tablet {
+    background-color: $white-color;
+  }
+}
+
+.text {
+  font-weight: 700;
+  @include desktop {
+    display: none;
+  }
+}
+
+.textDesk {
+  @include tablet-end {
+    display: none;
+  }
+}

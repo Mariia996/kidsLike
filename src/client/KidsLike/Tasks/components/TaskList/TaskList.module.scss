@@ -1,0 +1,16 @@
+@import '../../../../../shared/styles/base';
+
+.list {
+  margin-top: 30px;
+  @include tablet {
+    margin-top: 40px;
+    @include grid(2, repeat);
+    grid-gap: 20px;
+  }
+  @include desktop {
+    margin-top: 45px;
+    @include grid(3, repeat);
+    grid-gap: 20px;
+    margin-left: 110px;
+  }
+}

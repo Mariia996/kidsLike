@@ -2,9 +2,10 @@
 @import '../../styles/common';
 
 .btn {
+  font-family: inherit;
   font-weight: 500;
-  font-size: 12px;
-  line-height: 1.25;
+  font-size: 10px;
+  line-height: 1.2;
   background-color: $primary-bg-color;
   color: $primary-btn-text-color;
   text-align: center;
@@ -19,6 +20,8 @@
   @include tablet {
     & {
       width: 154px;
+      font-size: 12px;
+      line-height: 1.25;
     }
   }
   transition: background-color 250ms linear;

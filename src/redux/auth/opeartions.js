@@ -9,7 +9,10 @@ import {
     loginError,
     logoutRequest,
     logoutSuccess,
-    logoutError
+    logoutError,
+    currentUserRequest,
+    currentUserSuccess,
+    currentUserError
 } from './actions';
 
 const authService = new AuthService();
@@ -37,9 +40,20 @@ export const login = (body) => async dispatch => {
 export const logout = () => async dispatch => {
     dispatch(logoutRequest());
     try {
-        const data = await authService.logout();
-        dispatch(logoutSuccess(data));
+        await authService.logout();
+        dispatch(logoutSuccess());
     } catch (error) {
         dispatch(logoutError(error));
     }
 };
+
+export const currentUser = () => async dispatch => {
+    dispatch(currentUserRequest());
+    try {
+        const data = await authService.currentUser();
+        dispatch(currentUserSuccess(data));
+    }
+    catch (error) {
+        dispatch(currentUserError(error));
+    }
+}

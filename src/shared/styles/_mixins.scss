@@ -43,6 +43,12 @@
   }
 }
 
+@mixin tablet-snippet {
+  @media screen and (min-width: $tablet) and (max-width: $tablet-end) {
+    @content;
+  }
+}
+
 @mixin tablet-end {
   @media screen and (max-width: $tablet-end) {
     @content;
@@ -51,6 +57,12 @@
 
 @mixin desktop {
   @media screen and (min-width: $desktop) {
+    @content;
+  }
+}
+
+@mixin desktop-end {
+  @media screen and (max-width: $desktop-end) {
     @content;
   }
 }

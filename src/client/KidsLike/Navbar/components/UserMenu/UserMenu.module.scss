@@ -1,0 +1,32 @@
+@import '../../../../../shared/styles/base';
+
+.userContainer {
+  @include flex(start, center);
+  margin-bottom: 40px;
+}
+
+.avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  margin-right: 10px;
+  margin-left: 30px;
+}
+
+.logoutIcon {
+  display: block;
+}
+
+.userName {
+  font-weight: 500;
+  color: $white-color;
+  padding-right: 15px;
+  margin-right: 15px;
+  border-right: 1px solid $white-color;
+}
+
+.userContainer {
+  @include tablet-snippet {
+    display: none;
+  }
+}

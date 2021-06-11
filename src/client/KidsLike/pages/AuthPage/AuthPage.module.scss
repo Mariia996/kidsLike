@@ -1,0 +1,135 @@
+@import '../../../../shared/styles/base';
+@import '../../../../shared/styles/common';
+
+.container {
+  padding: 12px 0;
+}
+
+.mobImgContainer {
+  margin: 0 auto;
+  max-width: 320px;
+  @include tablet {
+    & {
+      display: none;
+    }
+  }
+}
+
+.tabletImgContainer {
+  display: none;
+  @include tablet-snippet {
+    & {
+      position: relative;
+      display: block;
+      margin: 0 auto;
+      max-width: 768px;
+      min-height: 240px;
+    }
+  }
+}
+
+.pic1Tablet {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  max-width: 300px;
+}
+
+.pic2Tablet {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%);
+  z-index: 2;
+  max-width: 300px;
+}
+
+.pic3Tablet {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  max-width: 300px;
+}
+
+.mainContainer {
+  @include desktop {
+    & {
+      display: flex;
+    }
+  }
+}
+
+.authContainer {
+  margin-top: 40px;
+  margin-bottom: 60px;
+  @include tablet {
+    & {
+      margin-top: 50px;
+      padding-bottom: 0;
+    }
+  }
+  @include desktop {
+    & {
+      flex-basis: 50%;
+      margin-bottom: 72px;
+    }
+  }
+}
+
+.desktopImgContainer {
+  @include desktop-end {
+    & {
+      display: none;
+    }
+  }
+  @include desktop {
+    & {
+      position: relative;
+      flex-basis: 50%;
+    }
+  }
+}
+
+.pic1Desktop {
+  position: absolute;
+  left: 0;
+  top: 0;
+  max-width: 377px;
+}
+
+.pic2Desktop {
+  position: absolute;
+  left: 205px;
+  top: 186px;
+  z-index: 2;
+  max-width: 280px;
+}
+
+.pic3Desktop {
+  position: absolute;
+  left: 0;
+  bottom: 170px;
+  z-index: 3;
+  max-width: 280px;
+}
+
+.pic4Desktop {
+  position: absolute;
+  right: 0;
+  bottom: -40px;
+  z-index: 4;
+  max-width: 362px;
+}
+
+.footerContainer {
+  display: none;
+  @include tablet {
+    display: block;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  @include desktop {
+    margin: 0;
+    margin-left: auto;
+  }
+}

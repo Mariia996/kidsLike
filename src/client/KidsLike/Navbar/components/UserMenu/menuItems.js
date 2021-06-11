@@ -1,9 +1,5 @@
 export const menuItems = [
     {
-        to: '/contacts',
-        text: 'Контакты'
-    },
-    {
         to: '/main',
         text: 'Главная'
     },
@@ -14,5 +10,9 @@ export const menuItems = [
     {
         to: '/rewards',
         text: 'Награды'
+    },
+        {
+        to: '/contacts',
+        text: 'Контакты'
     },
 ];

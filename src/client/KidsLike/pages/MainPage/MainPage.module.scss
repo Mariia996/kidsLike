@@ -1,0 +1,179 @@
+@import '../../../../shared/styles/base';
+@import '../../../../shared/styles/common';
+
+.container {
+  @include desktop {
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 40px;
+    flex-grow: 1;
+  }
+}
+
+.mainContainer {
+  @include mobile-end {
+    padding-top: 20px;
+  }
+  @include desktop {
+    @include flex();
+    padding-right: 40px;
+    margin: 0 auto;
+    max-width: 1180px;
+  }
+}
+
+.infoContainer {
+  @include desktop {
+    @include flex();
+    flex-wrap: wrap;
+  }
+}
+
+.progressContainer {
+  @include mobile-end {
+    display: none;
+  }
+  @include tablet {
+    margin-bottom: 20px;
+  }
+  @include desktop {
+    width: 50%;
+    margin-bottom: 0;
+  }
+}
+
+.progressMobContainer {
+  max-width: 320px;
+  margin: 0 auto;
+  @include tablet {
+    display: none;
+  }
+}
+
+.weekContainer {
+  @include tablet {
+    @include flex(center, center);
+  }
+  @include desktop {
+    width: 50%;
+    max-width: 334px;
+    order: -1;
+  }
+  @include desktop {
+    margin-left: 110px;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+  }
+}
+
+.week {
+  margin-bottom: 20px;
+  @include tablet-end {
+    display: none;
+  }
+  @include desktop {
+    font-size: 18px;
+    line-height: 1.222;
+    margin-bottom: 30px;
+  }
+}
+
+.myTasks {
+  font-weight: 500;
+  color: $third-text-color;
+  @include mobile-end {
+    margin-bottom: 2px;
+    text-align: center;
+  }
+  @include tablet {
+    margin-right: 20px;
+  }
+  @include desktop {
+    @include flex();
+  }
+}
+
+.currentDay {
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  @include mobile-end {
+    text-align: center;
+  }
+  @include desktop {
+    @include flex();
+  }
+}
+
+.currentDayContainer {
+  @include tablet {
+    @include flex();
+  }
+}
+
+.imgMob {
+  @include tablet {
+    display: none;
+  }
+}
+
+.imgContainer {
+  display: none;
+  @include tablet-snippet {
+    display: block;
+    max-width: 768px;
+    margin: 0 auto;
+  }
+}
+
+.imgDesk {
+  @include tablet-end {
+    display: none;
+  }
+}
+
+.tasksBtnContainer {
+  @include tablet-snippet {
+    display: block;
+  }
+  @include desktop {
+    width: 240px;
+    background-color: $primary-bg-color;
+  }
+}
+
+.tasksBtnContainerDesk {
+  @include tablet-end {
+    display: none;
+  }
+}
+
+.footerContainer {
+  margin-top: 40px;
+  margin-bottom: 38px;
+  @include tablet {
+    margin-bottom: 30px;
+  }
+}
+
+.footerContainerTab {
+  @include mobile-end {
+    display: none;
+  }
+  @include tablet {
+    margin-top: 56px;
+    margin-bottom: 30px;
+  }
+}
+
+.footerContainerDesk {
+  @include tablet-end {
+    display: none;
+  }
+  @include desktop {
+    margin-top: 50px;
+    margin-bottom: 40px;
+  }
+}

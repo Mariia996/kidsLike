@@ -1,6 +1,14 @@
 import BaseHttpService from '../../shared/service/base-http-service';
 
 class AuthService extends BaseHttpService {
+    async currentUser() {
+        try {
+            this.loadToken()
+            const data = await this.get('user/info');
+            return data;
+        }
+        catch (error) {}
+    }
 
     async register(body) {
         try {
@@ -23,6 +31,7 @@ class AuthService extends BaseHttpService {
     async logout() {
         try {
             await this.post('auth/logout');
+            this.removeToken();
         }
         catch (error) {}
     }

@@ -1,0 +1,32 @@
+@import '../../../../../shared/styles/base';
+
+.authbar {
+  @include tablet {
+    display: none;
+  }
+}
+
+.linkList {
+  display: block;
+  list-style: none;
+}
+
+.linkItem {
+  padding: 14px 30px;
+  border-top: 1px solid $white-color;
+}
+
+.linkItem:last-child {
+  border-bottom: 1px solid $white-color;
+}
+
+.navLink {
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: $white-color;
+}
+
+.activeNavLink {
+  color: $primary-text-color;
+}

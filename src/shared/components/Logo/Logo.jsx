@@ -5,11 +5,11 @@ import menuItems from '../../../client/KidsLike/Navbar/menuItems';
 
 import styles from './Logo.module.scss';
 
-const Logo = () => {
+const Logo = ({logo, icon}) => {
     const { auth } = menuItems;
     return (<NavLink exact to={auth.to} className={styles.logoLink}>
-        <span className={styles.logoText}>KidsLike</span>
-        <LogoIcon className={styles.logoIcon}/>
+        <span className={`${styles.logoText} ${logo}`}>KidsLike</span>
+        <LogoIcon className={`${styles.logoIcon} ${icon} `}/>
     </NavLink> );
 }
 

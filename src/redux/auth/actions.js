@@ -11,3 +11,7 @@ export const loginError = createAction('auth/loginError');
 export const logoutRequest = createAction('auth/logoutRequest');
 export const logoutSuccess = createAction('auth/logoutSuccess');
 export const logoutError = createAction('auth/logoutError');
+
+export const currentUserRequest = createAction('auth/currentUserRequest');
+export const currentUserSuccess = createAction('auth/currentUserSuccess');
+export const currentUserError = createAction('auth/currentUserError');

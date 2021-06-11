@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import shortid from 'shortid';
 
-import { ReactComponent as GoogleIcon } from './googleIcon/google.svg';
+import { ReactComponent as GoogleIcon } from '../../../images/AuthPage/icons/google.svg';
 import Button from '../../../shared/components/Button';
 
 import useForm from '../../../shared/hooks/useForm';
@@ -63,7 +63,7 @@ const AuthForm = () => {
                     value={data.email}
                     onChange={handleChange}
                     className={styles.inputField}
-                        placeholder={emailValue.placeholder} />
+                    placeholder={emailValue.placeholder} />
 
                 <label htmlFor={passwordInputId} className={styles.inputLabel}><span className={styles.star}>*</span>Пароль:</label>
                 <input type={passwordValue.type}

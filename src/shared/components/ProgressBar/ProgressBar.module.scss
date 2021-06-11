@@ -1,0 +1,62 @@
+@import '../../styles/base';
+
+.scoreContainer {
+  @include mobile-end {
+    display: none;
+  }
+}
+
+.progressContainer {
+  @include mobile-end {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 20px;
+    background-color: #f1f1f1;
+  }
+  @include tablet {
+    text-align: center;
+  }
+  @include desktop {
+    text-align: end;
+  }
+}
+
+.label {
+  font-size: 14px;
+  line-height: 1.214;
+  letter-spacing: 0.2em;
+  margin-right: 26px;
+  @include desktop {
+    margin-right: 20px;
+  }
+}
+
+.scoreWeek {
+  font-weight: 500;
+  margin-bottom: 2px;
+  color: $third-text-color;
+  @include tablet {
+    display: none;
+  }
+}
+
+.progress {
+  display: inline;
+  width: 50%;
+  @include tablet {
+    width: 280px;
+  }
+}
+
+.text {
+  margin-bottom: 10px;
+  font-weight: 500;
+  color: $third-text-color;
+}
+
+.score {
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: $primary-text-color;
+  margin-left: 13px;
+}

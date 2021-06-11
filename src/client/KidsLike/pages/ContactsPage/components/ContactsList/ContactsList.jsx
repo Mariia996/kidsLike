@@ -1,1 +1,0 @@
-import styles from './ContactsList.module.scss';

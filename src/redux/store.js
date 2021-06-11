@@ -1,7 +1,8 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 
-import giftsReducer from './gift/reducer';
 import user from './auth/reducer';
+import tasks from './task/reducer';
+import giftsReducer from './gift/reducer';
 
 const middleware = [
   ...getDefaultMiddleware(),
@@ -9,8 +10,9 @@ const middleware = [
 
 export const store = configureStore({
     reducer: {
+      auth: user,
+      tasks,
       rewards: giftsReducer,
-      auth: user
     },
     middleware,
     devTools: process.env.NODE_ENV === 'development',

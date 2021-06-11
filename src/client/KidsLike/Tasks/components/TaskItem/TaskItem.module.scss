@@ -1,0 +1,41 @@
+@import '../../../../../shared/styles/base';
+
+.item {
+  max-width: 280px;
+  border-radius: 6px;
+  box-shadow: 4px 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.item:not(:last-child) {
+  @include mobile-end {
+    margin-bottom: 20px;
+  }
+}
+
+.cardFooter {
+  padding: 14px 20px;
+  background-color: $primary-bg-color;
+  @include flex();
+}
+
+.title {
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.reward {
+  text-align: center;
+  font-size: 10px;
+  line-height: 1.2;
+  color: $white-color;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  max-width: 80px;
+  background-color: #5679d7;
+}
+
+.checkbox {
+  align-self: center;
+  margin-left: auto;
+}

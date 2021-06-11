@@ -9,7 +9,10 @@ import {
     loginError,
     logoutRequest,
     logoutSuccess,
-    logoutError
+    logoutError,
+    currentUserRequest,
+    currentUserSuccess,
+    currentUserError
 } from './actions';
 
 const initialStateUser = {
@@ -26,42 +29,51 @@ const initialStateIsAuthenticated = false;
 const initialStateError = null;
 
 const userReducer = createReducer(initialStateUser, {
+    [currentUserRequest]: (state) => ({ ...state }),
     [registerRequest]: (state, _) => ({ ...state }),
     [loginRequest]: (state, _) => ({ ...state }),
     [logoutRequest]: (state, _) => ({ ...state }),
+    [currentUserSuccess]: (_, {payload}) => ({...payload.user}),
     [registerSuccess]: (_, { payload }) => ({
         token: payload.token,
-        ...payload.data
+        ...payload.user
     }),
     [loginSuccess]: (_, { payload }) => ({
         token: payload.token,
-        ...payload.data
+        ...payload.user
     }),
     [logoutSuccess]: () => initialStateUser,
 });
 
 const loadingReducer = createReducer(initialStateLoading, {
+    [currentUserRequest]: () => true,
     [registerRequest]: () => true,
     [loginRequest]: () => true,
     [logoutRequest]: () => true,
+    [currentUserSuccess]: () => false,
     [registerSuccess]: () => false,
     [loginSuccess]: () => false,
     [logoutSuccess]: () => false,
+    [currentUserError]: () => false,
     [registerError]: () => false,
     [loginError]: () => false,
     [logoutError]: () => false,
 });
 
 const isAuthenticated = createReducer(initialStateIsAuthenticated, {
+    [currentUserSuccess]: () => true,
     [registerSuccess]: () => true,
     [loginSuccess]: () => true,
     [logoutSuccess]: () => false,
+    [currentUserError]: () => false,
     [registerError]: () => false,
     [loginError]: () => false,
     [logoutError]: () => false,
 });
 
 const errorReducer = createReducer(initialStateError, {
+    [currentUserError]: (_, {payload}) => payload,
+    [currentUserSuccess]: () => initialStateError,
     [registerError]: (_, { payload }) => payload,
     [registerSuccess]: () => initialStateError,
     [loginError]: (_, { payload }) => payload,

@@ -1,0 +1,60 @@
+@import '../../../shared/styles/base';
+
+.footer {
+  @include mobile-end {
+    text-align: center;
+  }
+  @include tablet {
+    @include flex(center, center);
+  }
+  @include desktop {
+    @include flex(flex-end, center);
+  }
+}
+
+.logoContainer {
+  margin-bottom: 10px;
+  @include tablet {
+    margin-bottom: 0;
+    margin-right: 10px;
+  }
+}
+
+.logoFooter {
+  color: $secondary-text-color;
+  font-size: 10px;
+  line-height: 1.2;
+  font-weight: 400;
+}
+
+.logoIcon {
+  width: 12px;
+  height: 15px;
+}
+
+.text {
+  display: block;
+  font-size: 10px;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  color: $secondary-text-color;
+  margin-bottom: 10px;
+  @include tablet {
+    border-right: 1px solid #e3e2e7;
+    border-left: 1px solid #e3e2e7;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-bottom: 0;
+  }
+}
+
+.year {
+  display: block;
+  font-size: 10px;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  color: $secondary-text-color;
+  @include tablet {
+    padding-left: 10px;
+  }
+}

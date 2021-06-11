@@ -1,0 +1,40 @@
+@import '../../../../../../../shared/styles/base';
+
+.navItem {
+  @include tablet-end {
+    padding: 14px 30px;
+    border-top: 1px solid $white-color;
+  }
+}
+
+.navItem:last-child {
+  @include tablet-end {
+    border-bottom: 1px solid $white-color;
+  }
+}
+
+.navLink {
+  font-weight: 500;
+  text-decoration: none;
+  color: $white-color;
+  @include desktop {
+    color: $secondary-text-color;
+  }
+}
+
+.navItem:not(:last-child) {
+  @include desktop {
+    padding-right: 15px;
+    border-right: 1px solid $secondary-text-color;
+  }
+}
+
+.navItem:not(:first-child) {
+  @include desktop {
+    padding-left: 15px;
+  }
+}
+
+.activeNavLink {
+  color: $primary-text-color;
+}
