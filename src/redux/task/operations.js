@@ -6,7 +6,13 @@ import {
     tasksError,
     addTasksRequest,
     addTasksSuccess,
-    addTasksError
+    addTasksError,
+    singleTasksRequest,
+    singleTasksSuccess,
+    singleTasksError,
+    switchTaskRequest,
+    switchTasksSuccess,
+    switchTasksError
 } from './actions';
 
 const tasksService = new TasksService();
@@ -30,5 +36,27 @@ export const addTask = (body) => async dispatch => {
     }
     catch (error) {
         dispatch(addTasksError(error));
+    }
+};
+
+export const switchTask = (id, body) => async dispatch => {
+    dispatch(switchTaskRequest());
+    try {
+        const data = await tasksService.patchSingleTask(id, body);
+        dispatch(switchTasksSuccess(data));
+    }
+    catch (error) {
+        dispatch(switchTasksError(error));
+    }
+}
+
+export const singleTask = (id, body) => async dispatch => {
+    dispatch(singleTasksRequest());
+    try {
+        const data = await tasksService.patchSwitchComplete(id, body);
+        dispatch(singleTasksSuccess(data));
+    }
+    catch (error) {
+        dispatch(singleTasksError(error));
     }
 }

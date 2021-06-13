@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import moment from 'moment';
 import { tasks } from '../../../../redux/task/operations';
 import useCurrentWeek from './currentWeek';
@@ -17,7 +18,6 @@ import styles from './MainPage.module.scss';
 
 const MainPage = () => {
     const dispatch = useDispatch();
-    const [isActive, setIsActive] = useState(0);
 
     moment.locale('ru');
     const dateNow = moment().format('dddd, DD-MM-YYYY');
@@ -28,8 +28,8 @@ const MainPage = () => {
         dispatch(tasks());
     }, [dispatch]);
 
+    const [isActive, setIsActive] = useState(0);
     const filteredTasks = useCurrentWeek(isActive);
-    console.log(filteredTasks);
 
     const getActiveIdx = (idx) => {
         setIsActive(idx);
@@ -83,3 +83,13 @@ const MainPage = () => {
 };
 
 export default MainPage;
+
+MainPage.defaultProps = {
+    tasks: [],
+    filteredTasks: []
+}
+
+MainPage.propTypes = {
+    tasks: PropTypes.array.isRequired,
+    filteredTasks: PropTypes.array.isRequired
+}

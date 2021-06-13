@@ -3,6 +3,7 @@ import moment from 'moment';
 import PlanningList from '../../Planning/components/PlanningList';
 import Footer from '../../Footer';
 import ScoreBar from '../../Planning/components/ScoreBar';
+import ButtonTask from '../../../../shared/components/ButtonTask';
 
 import styles from './PlanningPage.module.scss';
 
@@ -10,6 +11,9 @@ const PlanningPage = () => {
 
     const startOfWeek = moment().startOf('isoWeek').format('DD');
     const endOfWeek = moment().endOf('isoWeek').format('DD.MM.YYYY');
+
+    const addTask = () => {
+    }
 
     return (
         <div className={styles.container}>
@@ -26,6 +30,9 @@ const PlanningPage = () => {
                 <p className={styles.morePrizes}>Хочешь получить больше призов - добавь задачи : &#10089;</p>
             </div>
             <PlanningList />
+            <div className={styles.btnContainer}>
+                <ButtonTask onClick={addTask}/>
+            </div>
             <div className={styles.footerContainer}>
                 <Footer />
             </div>

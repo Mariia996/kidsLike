@@ -17,6 +17,22 @@ class TasksService extends BaseHttpService {
         }
         catch (error) {}
     }
+    async patchSingleTask(id, body) {
+        try {
+            this.loadToken();
+            const data = await this.patch(`task/single-active/${id}`, body);
+            return data;
+        }
+        catch (error) {}
+    }
+    async patchSwitchComplete(id, body) {
+        try {
+            this.loadToken();
+            const data = await this.patch(`task/switch/${id}`, body);
+            return data;
+        }
+        catch (error) {}
+    }
 }
 
 export default TasksService;

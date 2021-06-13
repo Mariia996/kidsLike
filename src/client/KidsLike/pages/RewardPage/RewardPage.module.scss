@@ -1,1 +1,90 @@
 @import '../../../../shared/styles/base';
+@import '../../../../shared/styles/common';
+
+.container {
+  @include tablet {
+    padding-top: 40px;
+  }
+  @include desktop {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
+.infoContainer {
+  @include tablet {
+    @include flex(space-between);
+  }
+}
+
+.titleContainer {
+  @include mobile-end {
+    margin-top: 25px;
+  }
+  @include tablet {
+    align-self: center;
+  }
+}
+
+.title {
+  font-size: 14px;
+  line-height: 1.214;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.titleText {
+  margin-left: 14px;
+}
+
+.btn {
+  width: 220px;
+}
+
+.btnContainer {
+  max-width: 220px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 40px;
+  @include tablet {
+    margin-bottom: 60px;
+  }
+  @include desktop {
+    margin-bottom: 22px;
+  }
+}
+
+.footer {
+  margin-bottom: 23px;
+  @include tablet {
+    margin-bottom: 30px;
+  }
+  @include desktop {
+    margin-right: 30px;
+  }
+}
+
+.progressBar {
+  @include mobile-end {
+    display: none;
+  }
+}
+
+.progressBarMob {
+  margin: 0 auto;
+  max-width: 320px;
+  @include tablet {
+    display: none;
+  }
+}
+
+.noRewardContainer {
+  width: 350px;
+  height: 200px;
+  @include flex(center, center);
+}
+
+.noReward {
+  font-weight: 700;
+  text-transform: uppercase;
+}

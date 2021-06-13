@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import CheckboxToggle from '../../../../../shared/components/CheckboxToggle';
 import styles from './TaskItem.module.scss';
 
-const TaskItem = ({ title, imageUrl, reward, isCompleted }) => {
+const TaskItem = ({ title, imageUrl, reward, isCompleted, onClick }) => {
 
     return (<li className={styles.item}>
         <img src={imageUrl} alt="" className={styles.img} />
@@ -13,7 +13,7 @@ const TaskItem = ({ title, imageUrl, reward, isCompleted }) => {
                 <p className={styles.reward}>{reward} балла</p>
             </div>
             <div className={styles.checkbox}>
-                <CheckboxToggle isCompleted={isCompleted} />
+                <CheckboxToggle isCompleted={isCompleted} onClick={() => onClick()}/>
             </div>
         </div>
     </li> );
@@ -25,12 +25,14 @@ TaskItem.defaultProps = {
     title: '',
     imageUrl: '',
     reward: 0,
-    isCompleted: false
+    isCompleted: false,
+    onClick: () => {}
 }
 
 TaskItem.propTypes = {
     title: PropTypes.string.isRequired,
     imageUrl: PropTypes.string.isRequired,
     reward: PropTypes.number.isRequired,
-    isCompleted: PropTypes.bool.isRequired
+    isCompleted: PropTypes.bool.isRequired,
+    onClick: PropTypes.func
 }

@@ -1,7 +1,7 @@
 import { useSelector, shallowEqual } from 'react-redux';
 import { getSelectedAwards } from '../../../../../redux/gift/seletors';
 
-import cat from '../../../../../images/RewardModal/cat.png';
+import cat from '../../../../../images/Rewards/RewardModal/cat.png';
 
 import styles from './RewardModal.module.scss';
 

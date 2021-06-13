@@ -1,9 +1,14 @@
-import { useState, useEffect, useCallback } from 'react';
-import { useSelector, shallowEqual, useDispatch } from 'react-redux';
+import { useState, useCallback } from 'react';
+import { useDispatch, useSelector, shallowEqual } from 'react-redux';
+import PropTypes from 'prop-types';
 
-import {getGifts, buyGifts} from '../../../../redux/gift/operations';
-import CheckboxToggle from '../../../../shared/components/CheckboxToggle';
-import { getRewards } from '../../../../redux/gift/seletors';
+import RewardList from '../../Rewards/components/RewardList';
+import { buyGifts } from '../../../../redux/gift/operations';
+import { ReactComponent as GiftBox } from '../../../../images/Rewards/giftBox.svg';
+import { getBuyGiftsErrorMessage } from '../../../../redux/gift/seletors';
+import ProgressBar from '../../../../shared/components/ProgressBar';
+import Button from '../../../../shared/components/Button';
+import Footer from '../../Footer';
 import Modal from '../../../../shared/components/Modal';
 import RewardModal from '../../Rewards/components/RewardModal';
 
@@ -11,17 +16,12 @@ import styles from './RewardPage.module.scss';
 
 const RewardPage = () => {
     const dispatch = useDispatch();
-    const awards = useSelector((state => getRewards(state)), shallowEqual);
-
-    useEffect(() => {
-        dispatch(getGifts());
-    }, [dispatch]);
-
+    const error = useSelector(state => getBuyGiftsErrorMessage(state), shallowEqual);
 
     const [selectAwards, setSelectAwards] = useState([]);
     const addAward = (id) => {
         if (!selectAwards.includes(id)) {
-            setSelectAwards([...selectAwards, id])
+            setSelectAwards([...selectAwards, id]);
         }
     };
 
@@ -33,45 +33,65 @@ const RewardPage = () => {
         [openModal],
     );
 
+    const [noReward, setNoReward] = useState(false);
     const handleSubmit = useCallback((e) => {
         e.preventDefault();
         if (selectAwards.length > 0) {
-            dispatch(buyGifts());
+            dispatch(buyGifts({
+                giftIds: selectAwards
+            }));
+            toggleModal();
+        } else {
+            setNoReward(true);
             toggleModal();
         }
     }, [dispatch, selectAwards, toggleModal]);
 
-    const itemElements = awards.map(({ id, title, price, imageUrl }) => (
-                 <li className={styles.item} key={id}>
-                        <img src={imageUrl} alt="Сладости" className={styles.image}/>
-                    <div className={styles.container_card}>
-                        <div className={styles.container_info}>
-                        <h3 className={styles.gift_name}>{title}</h3>
-                                <span className={styles.price}>{price}</span>
-                        </div>
-                        <div className={styles.container_checkboxtoggle}> <CheckboxToggle onClick={()=>addAward(id)} className={styles.checkbox_toggle} /></div>
-                    </div>
-                </li>   ))
-
     return (
         <>
-        <ul className={styles.list}>
-            {itemElements}
-        </ul>
         <div className={styles.container}>
-                {openModal && (<Modal onClose={toggleModal}>
-                    <RewardModal />
-            </Modal>)}
-            <button type='submit' onClick={handleSubmit}>Нажми меня</button>
+            <div className={styles.infoContainer}>
+                    <div className={styles.titleContainer}>
+                    <h2 className={styles.title}><GiftBox className={styles.titleIcon} /><span className={styles.titleText}>Мои призы</span></h2>
+                </div>
+                <div className={styles.progressBar}>
+                    <ProgressBar />
+                </div>
             </div>
+
+                <RewardList onClick={(id) => addAward(id)} />
+                <div className={styles.btnContainer}>
+                    <Button type='submit' className={styles.btn} onClick={handleSubmit}>Подтвердить</Button>
+
+                </div>
+
+                {openModal && (<Modal onClose={toggleModal}>
+                    {noReward ? <div className={styles.noRewardContainer}>
+                        {!error && <p className={styles.noReward}>Вы не выбрали ни одной награды!</p>}
+                        {error && <p className={styles.noReward}>У вас недостаточно баллов для покупки наград!</p>}
+                    </div>
+                       : <RewardModal />}
+            </Modal>)}
+
+            <div className={styles.footer}>
+                <Footer />
+            </div>
+        </div>
+
+        <div className={styles.progressBarMob}>
+                <ProgressBar />
+        </div>
         </>
      );
 }
 
-// function useSubmitButton(awards) {
-//     const dispatch = useDispatch();
-//         useEffect(() => dispatch(buyGifts(awards)), [dispatch]);
-
-// }
-
 export default RewardPage;
+
+RewardPage.defaultProps = {
+    error: null,
+}
+
+RewardPage.propTypes = {
+    error: PropTypes.bool,
+
+}

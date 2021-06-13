@@ -8,10 +8,18 @@ import {
     tasksError,
     addTasksRequest,
     addTasksSuccess,
-    addTasksError
+    addTasksError,
+    singleTasksRequest,
+    singleTasksSuccess,
+    singleTasksError,
+    switchTaskRequest,
+    switchTasksSuccess,
+    switchTasksError
  } from './actions';
 
 const initialStateWeek = [];
+
+const initialStateUpdatedTasks = {};
 
 const initialStateLoading = false;
 
@@ -20,23 +28,32 @@ const initialStateError = null;
 const tasks = createReducer(initialStateWeek, {
     [tasksRequest]: (state) => ([...state]),
     [tasksSuccess]: (_, { payload }) => ([...payload.week.tasks]),
-    [addTasksRequest]: (state) => ([...state]),
-    [addTasksSuccess]: (state, { payload }) => ([...state, ...payload]),
+
 });
+
+const updatedTasks = createReducer(initialStateUpdatedTasks, {
+    [addTasksRequest]: (state) => ({...state}),
+    [addTasksSuccess]: (_, { payload }) => payload,
+    [singleTasksRequest]: (state) => ({...state}),
+    [singleTasksSuccess]: (_, { payload }) => payload,
+    [switchTaskRequest]: (state) => ({ ...state }),
+    [switchTasksSuccess]: (_, { payload }) => payload,
+});
+
 
 const loadingReducer = createReducer(initialStateLoading, {
     [tasksRequest]: () => true,
     [addTasksRequest]: () => true,
-    // [loginRequest]: () => true,
-    // [logoutRequest]: () => true,
+    [singleTasksRequest]: () => true,
+    [switchTaskRequest]: () => true,
     [tasksSuccess]: () => false,
     [addTasksSuccess]: () => false,
-    // [loginSuccess]: () => false,
-    // [logoutSuccess]: () => false,
+    [singleTasksSuccess]: () => false,
+    [switchTasksSuccess]: () => false,
     [tasksError]: () => false,
     [addTasksError]: () => false,
-    // [loginError]: () => false,
-    // [logoutError]: () => false,
+    [singleTasksError]: () => false,
+    [switchTasksError]: () => false,
 });
 
 const errorReducer = createReducer(initialStateError, {
@@ -44,14 +61,15 @@ const errorReducer = createReducer(initialStateError, {
     [tasksSuccess]: () => initialStateError,
     [addTasksError]: (_, { payload }) => payload,
     [addTasksSuccess]: () => initialStateError,
-    // [loginError]: (_, { payload }) => payload,
-    // [loginSuccess]: () => initialStateError,
-    // [logoutError]: (_, { payload }) => payload,
-    // [logoutSuccess]: () => initialStateError,
+    [singleTasksError]: (_, { payload }) => payload,
+    [singleTasksSuccess]: () => initialStateError,
+    [switchTasksError]: (_, { payload }) => payload,
+    [switchTasksSuccess]: () => initialStateError,
 });
 
 const reducer = combineReducers({
     tasks,
+    updatedTasks,
     loading: loadingReducer,
     error: errorReducer
 });

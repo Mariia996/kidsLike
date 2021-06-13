@@ -5,7 +5,7 @@ import { v4 } from 'uuid';
 
 import styles from './CheckboxToggle.module.scss';
 
-function CheckboxToggle({  className, onClick } ) {
+function CheckboxToggle({ className, onClick } ) {
   const [checked, setChecked] = useState(false);
 
   const id = v4();
@@ -13,7 +13,7 @@ function CheckboxToggle({  className, onClick } ) {
     return (
         <div className={styles.switch}>
           <div className={styles.switchControl}>
-          <input id={id} className={ `${styles.switchToggle} ${className}`} checked={checked} type="checkbox" onChange={(e) => setChecked(!checked)} />
+          <input id={id} className={`${styles.switchToggle} ${className}`} checked={checked} type="checkbox" onClick={() => onClick()} onChange={(e) => setChecked(!checked)} />
             <label aria-hidden="true" className={styles.switchTrack} htmlFor={id}>
                 <span className={styles.switchIcon}></span>
             </label>
@@ -36,7 +36,7 @@ CheckboxToggle.defaultProps = {
 
 
 CheckboxToggle.propTypes = {
-    name: PropTypes.string.isRequired,
+    name: PropTypes.string,
     onClick: PropTypes.func,
     className: PropTypes.string,
     checked: PropTypes.bool,
