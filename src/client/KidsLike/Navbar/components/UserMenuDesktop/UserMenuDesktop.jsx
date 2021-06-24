@@ -1,5 +1,5 @@
 import { useSelector, shallowEqual, useDispatch } from 'react-redux';
-import shortid from 'shortid';
+import {v4} from 'uuid';
 
 import { getUserEmail } from '../../../../../redux/auth/selectors';
 import { logout } from '../../../../../redux/auth/opeartions';
@@ -13,7 +13,6 @@ import styles from './UserMenuDesktop.module.scss';
 const UserMenuDesktop = () => {
     const dispatch = useDispatch();
     const userEmail = useSelector(state => getUserEmail(state), shallowEqual);
-    const id = shortid.generate();
 
     const handleClick = () => {
         dispatch(logout());
@@ -21,7 +20,7 @@ const UserMenuDesktop = () => {
 
     const itemElements = menuItems.map((props) => {
         return (
-            <NavItem key={id} {...props} />
+            <NavItem key={v4()} {...props} />
         );
     });
 

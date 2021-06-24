@@ -60,9 +60,3 @@
     @content;
   }
 }
-
-@mixin desktop-end {
-  @media screen and (max-width: $desktop-end) {
-    @content;
-  }
-}

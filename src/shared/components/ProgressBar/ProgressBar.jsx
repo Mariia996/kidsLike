@@ -1,3 +1,4 @@
+
 import styles from './ProgressBar.module.scss';
 
 const ProgressBar = () => {
@@ -8,7 +9,7 @@ const ProgressBar = () => {
         </div>
         <p className={styles.scoreWeek}>Заработано баллов:</p>
         <label htmlFor="scores" className={styles.label}><span className={styles.score}>0</span> / 0</label>
-        <progress id="scores" value="0" max="0" className={styles.progress}></progress>
+        <progress id="scores" value="0"max="0" className={styles.progress}></progress>
     </div> );
 }
 

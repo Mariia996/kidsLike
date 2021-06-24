@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
+import 'moment/locale/ru';
 import { tasks } from '../../../../redux/task/operations';
 import useCurrentWeek from './currentWeek';
 
@@ -22,7 +23,7 @@ const MainPage = () => {
     moment.locale('ru');
     const dateNow = moment().format('dddd, DD-MM-YYYY');
     const startOfWeek = moment().startOf('isoWeek').format('DD');
-    const endOfWeek = moment().endOf('isoWeek').format('Do MMMM');
+    const endOfWeek = moment().endOf('isoWeek').format('DD MMMM');
 
     useEffect(() => {
         dispatch(tasks());
@@ -42,7 +43,6 @@ const MainPage = () => {
                 <TasksDaysList startOfWeek={startOfWeek} endOfWeek={endOfWeek} onClick={(idx) => getActiveIdx(idx)}/>
             </div>
             <div className={styles.container}>
-                <div className={styles.leftSideContainer}>
                     <div className={styles.infoContainer}>
                         <div className={styles.progressContainer}>
                             <ProgressBar />
@@ -55,15 +55,14 @@ const MainPage = () => {
                         </div>
                     </div>
                     </div>
-                    {filteredTasks.length === 0 ? <TaskMain /> : <TaskList currentTasks={filteredTasks}/>}
-                    {filteredTasks === null && <div className={styles.footerContainerDesk}>
+                    {filteredTasks.length === 0 ? <TaskMain /> : <TaskList currentTasks={filteredTasks} dayIdx={isActive}/>}
+                    {filteredTasks.length === 0 && <div className={styles.footerContainerDesk}>
                         <Footer />
                     </div>}
 
                     {filteredTasks.length !== 0 && (<div className={styles.footerContainer}>
                         <Footer />
                     </div>)}
-                </div>
             </div>
 
             {filteredTasks.length === 0 && (<div className={styles.imgContainer}>

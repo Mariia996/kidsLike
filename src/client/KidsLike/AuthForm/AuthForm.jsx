@@ -33,7 +33,6 @@ const AuthForm = () => {
     };
 
     const onSubmit = (body) => {
-        console.log(body);
         const action = (actionType === 'login') ? login(body) : register(body);
         dispatch(action);
     };

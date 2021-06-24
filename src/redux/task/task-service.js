@@ -12,7 +12,7 @@ class TasksService extends BaseHttpService {
     async addTask(body) {
         try {
             this.loadToken();
-            const data = await this.post('user/info', body);
+            const data = await this.post('task', body);
             return data;
         }
         catch (error) {}

@@ -3,6 +3,27 @@
 
 .container {
   padding-top: 20px;
+  position: relative;
+  @include tablet {
+    padding-top: 40px;
+  }
+  @include desktop {
+    padding-top: 48px;
+  }
+}
+.mainContainer {
+  @include desktop {
+    @include flex(space-between, center);
+  }
+}
+
+.weekContainer {
+  @include tablet {
+    @include flex(center, center);
+  }
+  @include desktop {
+    @include flex(start, center);
+  }
 }
 
 .title {
@@ -11,7 +32,8 @@
   line-height: 1.222;
   margin-bottom: 10px;
   @include tablet {
-    margin-bottom: 40px;
+    margin-bottom: 0;
+    margin-right: 10px;
   }
 }
 
@@ -29,6 +51,9 @@
 
   border: 1px solid $primary-bg-color;
   border-radius: 6px;
+  @include tablet {
+    margin: 0;
+  }
 }
 
 .morePrizes {
@@ -51,9 +76,42 @@
   @include mobile-end {
     display: none;
   }
+  @include tablet-end {
+    margin-top: 37px;
+    margin-bottom: 18px;
+  }
 }
 .scoreBarContainerMob {
   @include tablet {
     display: none;
   }
+}
+
+.btnContainer {
+  @include mobile-end {
+    position: absolute;
+    right: 20px;
+    bottom: -60px;
+  }
+  @include tablet {
+    display: none;
+  }
+}
+.textContainer {
+  @include flex(center, center);
+  @include desktop {
+    @include flex(start, center);
+  }
+}
+
+.btnContainerTablet {
+  @include mobile-end {
+    display: none;
+  }
+  margin-left: 20px;
+}
+
+.morePrizes {
+  font-weight: 500;
+  color: $third-text-color;
 }

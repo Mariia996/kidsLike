@@ -77,7 +77,7 @@
 }
 
 .desktopImgContainer {
-  @include desktop-end {
+  @include tablet-end {
     & {
       display: none;
     }

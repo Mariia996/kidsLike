@@ -2,9 +2,12 @@ import styles from './ScoreBar.module.scss';
 
 const ScoreBar = () => {
     return (<div className={styles.scoreBarContainer}>
-        <div className={styles.scoreContainer}>
-            <p className={styles.scoreText}><span className={styles.score}>16</span> баллов</p>
-        </div>
+            <div className={styles.scoreText}>
+                <span className={styles.textTablet}>Определены задачи на</span>
+                <div className={styles.scoreContainer}>
+                    <span className={styles.score}>16</span>
+                </div>
+                <span className={styles.scores}>баллов</span></div>
     </div> );
 }
 

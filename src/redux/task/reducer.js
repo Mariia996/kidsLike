@@ -28,16 +28,27 @@ const initialStateError = null;
 const tasks = createReducer(initialStateWeek, {
     [tasksRequest]: (state) => ([...state]),
     [tasksSuccess]: (_, { payload }) => ([...payload.week.tasks]),
+    [switchTaskRequest]: (state) => ([...state]),
+    [switchTasksSuccess]: (state, { payload }) => {
+        const newState = [...state];
+        const taskIdx = newState.findIndex(item => item._id === payload.updatedTask.id);
+        newState.splice(taskIdx, 1, payload.updatedTask);
+        return [...newState]
+    },
+    [addTasksRequest]: (state) => ([...state]),
+    [addTasksSuccess]: (state, { payload }) => {
+        const newState = [...state];
+        newState.push(payload);
+        return [...newState];
+    },
 
 });
 
 const updatedTasks = createReducer(initialStateUpdatedTasks, {
-    [addTasksRequest]: (state) => ({...state}),
-    [addTasksSuccess]: (_, { payload }) => payload,
+    [switchTaskRequest]:(state) => ({...state}),
+    [switchTasksSuccess]: (_, { payload }) => payload,
     [singleTasksRequest]: (state) => ({...state}),
     [singleTasksSuccess]: (_, { payload }) => payload,
-    [switchTaskRequest]: (state) => ({ ...state }),
-    [switchTasksSuccess]: (_, { payload }) => payload,
 });
 
 

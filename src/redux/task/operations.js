@@ -42,7 +42,7 @@ export const addTask = (body) => async dispatch => {
 export const switchTask = (id, body) => async dispatch => {
     dispatch(switchTaskRequest());
     try {
-        const data = await tasksService.patchSingleTask(id, body);
+        const data = await tasksService.patchSwitchComplete(id, body);
         dispatch(switchTasksSuccess(data));
     }
     catch (error) {
@@ -53,7 +53,7 @@ export const switchTask = (id, body) => async dispatch => {
 export const singleTask = (id, body) => async dispatch => {
     dispatch(singleTasksRequest());
     try {
-        const data = await tasksService.patchSwitchComplete(id, body);
+        const data = await tasksService.patchSingleTask(id, body);
         dispatch(singleTasksSuccess(data));
     }
     catch (error) {

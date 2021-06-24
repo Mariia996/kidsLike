@@ -1,9 +1,15 @@
 @import '../../../../../shared/styles/base';
+@import '../../../../../shared/styles/common';
 
 .item {
   max-width: 280px;
   border-radius: 6px;
   box-shadow: 4px 6px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.img {
+  height: 194px;
 }
 
 .item:not(:last-child) {
@@ -16,6 +22,11 @@
   padding: 14px 20px;
   background-color: $primary-bg-color;
   @include flex();
+  border-radius: 0px 0px 6px 6px;
+}
+
+.cardFooter {
+  @include flex(space-between);
 }
 
 .title {
@@ -31,6 +42,82 @@
   color: $white-color;
   text-transform: uppercase;
   padding: 3px 10px;
-  max-width: 80px;
+  max-width: 90px;
   background-color: #5679d7;
+  border-radius: 3px;
+}
+
+.form {
+  align-self: center;
+}
+
+.btn {
+  font-size: 24px;
+  color: $third-bg-color;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  background-color: $white-color;
+}
+
+.submitBtn {
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: $third-bg-color;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  background-color: $white-color;
+}
+
+.daysItem {
+  width: 44px;
+}
+
+.daysItem:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.daysList {
+  position: absolute;
+  top: -5px;
+  right: 0;
+  width: 114px;
+  height: 208px;
+  background-color: #5679d7;
+  border-radius: 6px;
+  @include flex(center, center);
+  flex-direction: column;
+  @include tablet {
+    right: -20px;
+  }
+}
+
+.inputLabel {
+  font-weight: 700;
+  color: $white-color;
+}
+
+.inputLabel::before {
+  content: '';
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 1px solid $white-color;
+  border-radius: 2px;
+  margin-right: 10px;
+  vertical-align: text-top;
+
+  .inputField:checked + & {
+    background-color: $white-color;
+    background-image: url('../../../../../images/Planning/icons/vector.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+  }
 }

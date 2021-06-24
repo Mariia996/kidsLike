@@ -23,7 +23,6 @@ export const buyGifts = (body) => async dispatch => {
 
     try {
         const { data } = await axios.patch('/gift', body);
-        console.log(data);
         dispatch(actions.getGiftsSuccess(data.purchasedGiftIds));
     }
     catch (error) {

@@ -1,4 +1,3 @@
-import { useState } from 'react-redux';
 import { tabs } from './tabs';
 
 import styles from './TasksDaysList.module.scss';

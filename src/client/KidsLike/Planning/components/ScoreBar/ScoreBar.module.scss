@@ -1,0 +1,56 @@
+@import '../../../../../shared/styles/base';
+
+.scoreBarContainer {
+  margin: 0 auto;
+  @include mobile-end {
+    @include flex(center, center);
+    max-width: 320px;
+    height: 58px;
+    background-color: #f1f1f1;
+    @include desktop {
+      margin: 0;
+    }
+  }
+}
+
+.scoreText {
+  @include flex(center, center);
+  color: $third-text-color;
+  font-weight: 500;
+  @include desktop {
+    @include flex(start);
+  }
+}
+
+.scoreContainer {
+  @include flex(center, center);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+  background-color: $third-bg-color;
+  @include tablet {
+    margin-right: 5px;
+  }
+}
+
+.score {
+  display: inline-block;
+  font-size: 14px;
+  line-height: 1.214;
+  font-weight: 700;
+  color: $white-color;
+}
+
+.textTablet {
+  @include mobile-end {
+    display: none;
+  }
+  margin-right: 5px;
+}
+
+.scores {
+  @include mobile-end {
+    text-transform: uppercase;
+  }
+}
