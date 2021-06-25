@@ -1,39 +1,60 @@
 import { combineReducers, createReducer } from '@reduxjs/toolkit';
 
-import actions from './actions';
+import {
+    getGiftsRequest,
+    getGiftsSuccess,
+    getGiftsError,
+    buyGiftsRequest,
+    buyGiftsSuccess,
+    buyGiftsError,
+} from './actions';
 
-const initialStateGetGifts = {
-    gifts: [],
-    loading: false,
-};
+const initialStateGifts = [];
 
-const initialStateBuyGifts = [];
+const selectedGiftsInitialState = [];
+
+const initialStateLoading = false;
 
 const initialStateError = null;
 
-const getGiftsReduser = createReducer(initialStateGetGifts, {
-    [actions.getGiftsRequest]: (state) => ({ ...state, loading: true }),
-    [actions.getGiftsSuccess]: (_, { payload }) => ({ gifts: payload, loading: false }),
-    [actions.getGiftsError]: (state) => ({ ...state, loading: false }),
+const giftsReduser = createReducer(initialStateGifts, {
+    [getGiftsRequest]: (state) => ([...state]),
+    [getGiftsSuccess]: (_, { payload }) => payload,
+    [buyGiftsRequest]: (state) => ([...state]),
+    [buyGiftsSuccess]: (state, { payload }) => {
+        const newState = [...state];
+        const newItems = newState.filter(item => payload.includes(item.id)).map(item => ({ ...item, isSelected: true }))
 
+        return [...newState]
+    },
 });
 
-const buyGiftsReducer = createReducer(initialStateBuyGifts, {
-    [actions.buyGiftsRequest]: (state) => ({ ...state, loading: true }),
-    [actions.buyGiftsSuccess]: (_, { payload }) => ({ payload, loading: false }),
-    [actions.buyGiftsError]: (state) => ({ ...state, loading: false }),
+const selectedGifts = createReducer(selectedGiftsInitialState, {
+    [buyGiftsRequest]: (state) => ([...state]),
+    [buyGiftsSuccess]: (_, { payload }) => payload,
+})
+
+const loadingReducer = createReducer(initialStateLoading, {
+    [getGiftsRequest]: () => true,
+    [buyGiftsRequest]: () => true,
+    [getGiftsSuccess]: () => false,
+    [buyGiftsSuccess]: () => false,
+    [getGiftsError]: () => false,
+    [buyGiftsError]: () => false,
+
 });
 
 const errorReducer = createReducer(initialStateError, {
-    [actions.getGiftsError]: (_, { payload }) => payload,
-    [actions.getGiftsSuccess]: () => initialStateError,
-    [actions.buyGiftsError]: (_, { payload }) => payload,
-    [actions.buyGiftsSuccess]: () => initialStateError,
+    [getGiftsError]: (_, { payload }) => payload,
+    [getGiftsSuccess]: () => initialStateError,
+    [buyGiftsError]: (_, { payload }) => payload,
+    [buyGiftsSuccess]: () => initialStateError,
 });
 
 const reducer = combineReducers({
-    awards: getGiftsReduser,
-    selectedAwards: buyGiftsReducer,
+    rewards: giftsReduser,
+    selectedGifts,
+    loading: loadingReducer,
     error: errorReducer
 });
 

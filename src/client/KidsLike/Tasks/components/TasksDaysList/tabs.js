@@ -28,12 +28,12 @@ export const tabs = [
     },
     {
         id: uuidv4(),
-        day: 'Пн',
+        day: 'Сб',
         dayDesk: 'Суббота'
     },
     {
         id: uuidv4(),
-        day: 'Пн',
+        day: 'Вс',
         dayDesk: 'Воскресенье'
     },
 ];

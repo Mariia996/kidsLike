@@ -3,7 +3,7 @@ import CheckboxToggle from '../../../../../shared/components/CheckboxToggle';
 
 import styles from './RewardItem.module.scss';
 
-const RewardItem = ({ title, price, imageUrl, onClick}) => {
+const RewardItem = ({ title, price, imageUrl, isSelected, onClick}) => {
     return (<li className={styles.item}>
             <img src={imageUrl} alt="Подарки" className={styles.image}/>
                 <div className={styles.cardFooter}>
@@ -12,7 +12,7 @@ const RewardItem = ({ title, price, imageUrl, onClick}) => {
                         <span className={styles.reward }>{price}</span>
                     </div>
             <div className={styles.checkbox}>
-                <CheckboxToggle onClick={() => onClick()} className={styles.checkbox_toggle} />
+                <CheckboxToggle isCompleted={isSelected} onClick={() => onClick()} className={styles.checkbox_toggle} />
             </div>
                 </div>
             </li>  );

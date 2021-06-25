@@ -44,6 +44,11 @@ const tasks = createReducer(initialStateWeek, {
 
 });
 
+const week = createReducer(initialStateUpdatedTasks, {
+    [tasksRequest]:(state) => ({...state}),
+    [tasksSuccess]: (_, { payload }) => payload.week,
+});
+
 const updatedTasks = createReducer(initialStateUpdatedTasks, {
     [switchTaskRequest]:(state) => ({...state}),
     [switchTasksSuccess]: (_, { payload }) => payload,
@@ -80,6 +85,7 @@ const errorReducer = createReducer(initialStateError, {
 
 const reducer = combineReducers({
     tasks,
+    week,
     updatedTasks,
     loading: loadingReducer,
     error: errorReducer

@@ -52,7 +52,8 @@ const RewardPage = () => {
         <div className={styles.container}>
             <div className={styles.infoContainer}>
                     <div className={styles.titleContainer}>
-                    <h2 className={styles.title}><GiftBox className={styles.titleIcon} /><span className={styles.titleText}>Мои призы</span></h2>
+                    <GiftBox className={styles.titleIcon} />
+                    <h2 className={styles.title}>Мои призы</h2>
                 </div>
                 <div className={styles.progressBar}>
                     <ProgressBar />
@@ -68,7 +69,7 @@ const RewardPage = () => {
                 {openModal && (<Modal onClose={toggleModal}>
                     {noReward ? <div className={styles.noRewardContainer}>
                         {!error && <p className={styles.noReward}>Вы не выбрали ни одной награды!</p>}
-                        {error && <p className={styles.noReward}>У вас недостаточно баллов для покупки наград!</p>}
+                        {error && <p className={styles.noScores}>У вас недостаточно баллов для покупки наград!</p>}
                     </div>
                        : <RewardModal />}
             </Modal>)}

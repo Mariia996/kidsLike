@@ -1,3 +1,3 @@
-export const getRewards = (state) => state.rewards.awards.gifts;
-export const getSelectedAwards = (state) => state.rewards.selectedAwards;
+export const getRewards = (state) => state.rewards.rewards;
+export const getSelectedAwards = (state) => state.rewards.selectedGifts;
 export const getBuyGiftsErrorMessage = (state) => state.rewards.error;

@@ -15,9 +15,18 @@ const RewardList = ({onClick}) => {
         dispatch(getGifts());
     }, [dispatch]);
 
-    const awards = useSelector((state => getRewards(state)), shallowEqual);
+    const rewards = useSelector((state => getRewards(state)), shallowEqual);
+    // const payload = [3, 6]
 
-    const itemElements = awards.map(({ id, ...props }) => (<RewardItem key={id} {...props} onClick={() => onClick(id)}/>))
+    // const newRewards = [...rewards];
+    // const newItems = newRewards.filter(item => payload.includes(item.id)).map(item => ({ ...item, isSelected: true }))
+//     const newArray = newRewards.reduce((acc, item, idx, array) => {
+//         if (payload.includes(item.id)) {
+//             array.split(idx, 1)
+//         }
+//         return array;
+//     }, [])
+    const itemElements = rewards.map(({ id, ...props }) => (<RewardItem key={id} {...props} onClick={() => onClick(id)}/>))
     return (  <ul className={styles.list}>
             {itemElements}
         </ul> );

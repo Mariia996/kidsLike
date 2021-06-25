@@ -16,6 +16,8 @@
   padding: 14px 20px;
   background-color: $primary-bg-color;
   @include flex();
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
 }
 
 .title {
@@ -32,6 +34,7 @@
   text-transform: uppercase;
   padding: 3px 10px;
   max-width: 80px;
+  border-radius: 4px;
   background-color: #5679d7;
 }
 

@@ -1,4 +1,5 @@
 import { useSelector, shallowEqual } from 'react-redux';
+import { getRewards } from '../../../../../redux/gift/seletors';
 import { getSelectedAwards } from '../../../../../redux/gift/seletors';
 
 import cat from '../../../../../images/Rewards/RewardModal/cat.png';
@@ -6,9 +7,10 @@ import cat from '../../../../../images/Rewards/RewardModal/cat.png';
 import styles from './RewardModal.module.scss';
 
 const RewardModal = () => {
-    const awards = useSelector((state => getSelectedAwards(state)), shallowEqual);
-
-    const itemElements = awards.map(item => (
+    const rewards = useSelector((state => getRewards(state)), shallowEqual);
+    const slectedRewardsIdx = useSelector((state => getSelectedAwards(state)), shallowEqual);
+    const selectedRewards = rewards.filter(item => slectedRewardsIdx.includes(item.id)).map(item => ({ ...item, isSelected: true }))
+    const itemElements = selectedRewards.map(item => (
         <li key={item.id}>
             <div className={styles.rewardImg}>
                 <img src={item.imageUrl} alt="" className={styles.reward} />
