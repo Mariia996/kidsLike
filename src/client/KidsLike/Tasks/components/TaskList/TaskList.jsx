@@ -16,7 +16,6 @@ const TaskList = ({ currentTasks, dayIdx }) => {
         // при повторном диспатче id undefined
         dispatch(switchTask(id, { date }));
     };
-
     const itemElements = currentTasks.map(({ _id, ...props }) => <TaskItem key={_id} onClick={() => switchTasks(_id)} dayIdx={dayIdx} {...props} />)
     return (<ul className={styles.list}>
         {itemElements}

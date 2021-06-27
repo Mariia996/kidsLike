@@ -1,12 +1,20 @@
+import { useState } from 'react';
 import { tabs } from './tabs';
 
 import styles from './TasksDaysList.module.scss';
 
+
 const TasksDaysList = ({ startOfWeek, endOfWeek, onClick }) => {
+    const [currentDay, setCurrentDay] = useState(0)
+
+    const selectDay = (idx) => {
+        onClick(idx);
+        setCurrentDay(idx);
+    }
 
     const itemElements = tabs.map(({ id, day, dayDesk }, idx) => {
         return (<li key={id} className={styles.btnItem} >
-            <button type="button" className={styles.daysBtn} onClick={() => onClick(idx)}><span className={styles.text}>{day}</span>
+            <button type="button" className={idx !== currentDay ? styles.daysBtn : styles.daysBtnActive} onClick={() => selectDay(idx)}><span className={styles.text}>{day}</span>
                 <span className={styles.textDesk}>{dayDesk}</span></button>
         </li>)
     });

@@ -100,12 +100,16 @@
 }
 
 .daysBtn:hover,
-.daysBtn:focus,
-.daysBtn:active {
+.daysBtn:focus {
   background-color: $accent-color;
   @include tablet {
     background-color: $white-color;
   }
+}
+
+.daysBtnActive {
+  composes: daysBtn;
+  background-color: $white-color;
 }
 
 .text {

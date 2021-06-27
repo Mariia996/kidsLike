@@ -24,6 +24,7 @@ RewardItem.defaultProps = {
     title: '',
     price: 0,
     imageUrl: '',
+    isSelected: false,
     onClick: () => {}
 }
 
@@ -31,5 +32,6 @@ RewardItem.propTypes = {
     title: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     imageUrl: PropTypes.string.isRequired,
+    isSelected: PropTypes.bool.isRequired,
     onClick: PropTypes.func
 }

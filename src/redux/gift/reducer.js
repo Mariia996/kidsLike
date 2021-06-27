@@ -17,16 +17,9 @@ const initialStateLoading = false;
 
 const initialStateError = null;
 
-const giftsReduser = createReducer(initialStateGifts, {
+const giftsReducer = createReducer(initialStateGifts, {
     [getGiftsRequest]: (state) => ([...state]),
     [getGiftsSuccess]: (_, { payload }) => payload,
-    [buyGiftsRequest]: (state) => ([...state]),
-    [buyGiftsSuccess]: (state, { payload }) => {
-        const newState = [...state];
-        const newItems = newState.filter(item => payload.includes(item.id)).map(item => ({ ...item, isSelected: true }))
-
-        return [...newState]
-    },
 });
 
 const selectedGifts = createReducer(selectedGiftsInitialState, {
@@ -52,7 +45,7 @@ const errorReducer = createReducer(initialStateError, {
 });
 
 const reducer = combineReducers({
-    rewards: giftsReduser,
+    rewards: giftsReducer,
     selectedGifts,
     loading: loadingReducer,
     error: errorReducer

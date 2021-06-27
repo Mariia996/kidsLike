@@ -43,6 +43,7 @@ export const switchTask = (id, body) => async dispatch => {
     dispatch(switchTaskRequest());
     try {
         const data = await tasksService.patchSwitchComplete(id, body);
+        console.log(data);
         dispatch(switchTasksSuccess(data));
     }
     catch (error) {

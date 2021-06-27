@@ -6,6 +6,7 @@ import moment from 'moment';
 import 'moment/locale/ru';
 import { tasks } from '../../../../redux/task/operations';
 import useCurrentWeek from './currentWeek';
+import useCurrentDay from './useCurrentDay';
 
 import TaskMain from '../../Tasks/components/TaskMain';
 import ProgressBar from '../../../../shared/components/ProgressBar';
@@ -20,8 +21,6 @@ import styles from './MainPage.module.scss';
 const MainPage = () => {
     const dispatch = useDispatch();
 
-    moment.locale('ru');
-    const dateNow = moment().format('dddd, DD-MM-YYYY');
     const startOfWeek = moment().startOf('isoWeek').format('DD');
     const endOfWeek = moment().endOf('isoWeek').format('DD MMMM');
 
@@ -31,6 +30,7 @@ const MainPage = () => {
 
     const [isActive, setIsActive] = useState(0);
     const filteredTasks = useCurrentWeek(isActive);
+    const dateNow = useCurrentDay(isActive)
 
     const getActiveIdx = (idx) => {
         setIsActive(idx);

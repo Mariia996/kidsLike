@@ -17,7 +17,7 @@ function CheckboxToggle({ className, onClick, isCompleted }) {
         <div className={styles.switch}>
           <div className={styles.switchControl}>
           <input id={id} className={`${styles.switchToggle} ${className}`} checked={checked} type="checkbox"
-            onClick={() => onClick()} onChange={handleChange} />
+            onClick={onClick} onChange={handleChange} />
             <label aria-hidden="true" className={styles.switchTrack} htmlFor={id}>
                 <span className={styles.switchIcon}></span>
             </label>
@@ -31,19 +31,18 @@ export default CheckboxToggle;
 
 
 CheckboxToggle.defaultProps = {
-    checked: false,
-    label: '',
-    className: '',
+  label: '',
+  className: '',
   onChange: () => { },
   onClick: () => { }
 }
 
 
 CheckboxToggle.propTypes = {
-    name: PropTypes.string,
-    onClick: PropTypes.func,
-    className: PropTypes.string,
-    checked: PropTypes.bool,
-    label: PropTypes.string
+  name: PropTypes.string,
+  onClick: PropTypes.func,
+  className: PropTypes.string,
+  checked: PropTypes.bool,
+  label: PropTypes.string
 }
 
