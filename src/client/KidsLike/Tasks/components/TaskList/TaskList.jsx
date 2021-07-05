@@ -7,16 +7,14 @@ import TaskItem from '../TaskItem';
 
 import styles from './TaskList.module.scss';
 
-const TaskList = ({ currentTasks, dayIdx }) => {
+const TaskList = ({ currentTasks, dayIdx, dateNow }) => {
     const dispatch = useDispatch();
     const date = moment().format('YYYY-MM-DD');
 
-
     const switchTasks = (id) => {
-        // при повторном диспатче id undefined
         dispatch(switchTask(id, { date }));
     };
-    const itemElements = currentTasks.map(({ _id, ...props }) => <TaskItem key={_id} onClick={() => switchTasks(_id)} dayIdx={dayIdx} {...props} />)
+    const itemElements = currentTasks.map(({ _id, ...props }) => <TaskItem key={_id} onClick={() => switchTasks(_id)} dayIdx={dayIdx} dateNow={dateNow} {...props} />)
     return (<ul className={styles.list}>
         {itemElements}
     </ul> );
@@ -28,7 +26,8 @@ TaskList.defaultProps = {
     currentTasks: [],
     id: '',
     dayIdx: 0,
-    onClick: () => {},
+    onClick: () => { },
+    dateNow: ''
 }
 
 TaskList.propTypes = {
@@ -36,4 +35,5 @@ TaskList.propTypes = {
     id: PropTypes.string,
     dayIdx: PropTypes.number,
     onClick: PropTypes.func,
+    dateNow: PropTypes.string
 }

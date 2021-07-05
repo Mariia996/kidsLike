@@ -20,6 +20,16 @@ const initialStateError = null;
 const giftsReducer = createReducer(initialStateGifts, {
     [getGiftsRequest]: (state) => ([...state]),
     [getGiftsSuccess]: (_, { payload }) => payload,
+    [buyGiftsSuccess]: (state, { payload }) => {
+    const newRewards = [...state];
+    payload.map(id => {
+        const idx = newRewards.findIndex(item => item.id === id)
+        const items = newRewards[idx]
+        newRewards[idx] = { ...items, isSelected: true }
+        return newRewards
+    })
+    return [...newRewards]
+    },
 });
 
 const selectedGifts = createReducer(selectedGiftsInitialState, {

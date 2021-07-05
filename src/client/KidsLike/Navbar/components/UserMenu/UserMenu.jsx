@@ -1,5 +1,6 @@
 import { useSelector, shallowEqual, useDispatch } from 'react-redux';
-import {v4} from 'uuid';
+import { v4 } from 'uuid';
+import PropTypes from 'prop-types';
 
 import { getUserEmail } from '../../../../../redux/auth/selectors';
 import { logout } from '../../../../../redux/auth/opeartions';
@@ -39,3 +40,11 @@ const UserMenu = () => {
 }
 
 export default UserMenu;
+
+UserMenu.defaultProps = {
+    userEmail: ''
+}
+
+UserMenu.propTypes = {
+    userEmail: PropTypes.string
+}

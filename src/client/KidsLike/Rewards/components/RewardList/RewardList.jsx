@@ -16,16 +16,7 @@ const RewardList = ({onClick}) => {
     }, [dispatch]);
 
     const rewards = useSelector((state => getRewards(state)), shallowEqual);
-    // const payload = [3, 6]
 
-    // const newRewards = [...rewards];
-    // const newItems = newRewards.filter(item => payload.includes(item.id)).map(item => ({ ...item, isSelected: true }))
-//     const newArray = newRewards.reduce((acc, item, idx, array) => {
-//         if (payload.includes(item.id)) {
-//             array.split(idx, 1)
-//         }
-//         return array;
-//     }, [])
     const itemElements = rewards.map(({ id, ...props }) => (<RewardItem key={id} {...props} onClick={() => onClick(id)}/>))
     return (  <ul className={styles.list}>
             {itemElements}
@@ -35,11 +26,11 @@ const RewardList = ({onClick}) => {
 export default RewardList;
 
 RewardList.defaultProps = {
-    awards: [],
+    rewards: [],
     onClick: () => {}
 }
 
 RewardList.propTypes = {
-    awards: PropTypes.array.isRequired,
+    rewards: PropTypes.array.isRequired,
     onClick: PropTypes.func
 }

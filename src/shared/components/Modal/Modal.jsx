@@ -1,5 +1,6 @@
 import { useEffect, useCallback } from 'react';
 import { createPortal } from 'react-dom';
+import PropTypes from 'prop-types';
 
 import { ReactComponent as CloseIcon } from './CloseIcon/close.svg';
 import styles from './Modal.module.scss';
@@ -42,3 +43,11 @@ const Modal = ({ children, onClose }) => {
 }
 
 export default Modal;
+
+Modal.defaultProps = {
+    onClose: () => { }
+}
+
+Modal.propTypes = {
+    onClose: PropTypes.func
+}

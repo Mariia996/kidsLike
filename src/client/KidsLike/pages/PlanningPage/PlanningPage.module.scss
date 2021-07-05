@@ -22,7 +22,7 @@
     @include flex(center, center);
   }
   @include desktop {
-    @include flex(start, center);
+    @include flex(_, center);
   }
 }
 
@@ -37,23 +37,11 @@
   }
 }
 
-.select {
+.week {
   display: block;
-  margin: 0 auto;
-  padding: 6px 0px 6px 15px;
-  width: 155px;
-
-  font-family: inherit;
+  text-align: center;
   font-weight: 700;
-  font-size: 10px;
-  line-height: 1.2;
   letter-spacing: 0.2em;
-
-  border: 1px solid $primary-bg-color;
-  border-radius: 6px;
-  @include tablet {
-    margin: 0;
-  }
 }
 
 .morePrizes {
@@ -89,9 +77,9 @@
 
 .btnContainer {
   @include mobile-end {
-    position: absolute;
+    position: fixed;
     right: 20px;
-    bottom: -60px;
+    bottom: 20px;
   }
   @include tablet {
     display: none;
@@ -100,7 +88,7 @@
 .textContainer {
   @include flex(center, center);
   @include desktop {
-    @include flex(start, center);
+    @include flex(_, center);
   }
 }
 

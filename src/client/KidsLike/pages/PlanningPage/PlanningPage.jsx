@@ -19,18 +19,13 @@ const PlanningPage = () => {
         [openModal],
     );
 
-    const addTask = () => {
-    }
-
     return (
         <>
         <div className={styles.container}>
             <div className={styles.mainContainer}>
                 <div className={styles.weekContainer}>
                     <h2 className={styles.title}>План на неделю:</h2>
-                    <select name="week" id="week" className={styles.select}>
-                        <option value="" className={styles.selectText}>{startOfWeek} - {endOfWeek}</option>
-                    </select>
+                    <p className={styles.week}>{startOfWeek} - {endOfWeek}</p>
                 </div>
                 <div className={styles.scoreBarContainer}>
                     <ScoreBar />

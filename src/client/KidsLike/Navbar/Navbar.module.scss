@@ -10,7 +10,7 @@
 .row {
   padding-top: 20px;
   padding-bottom: 20px;
-  @include flex(start, center);
+  @include flex(_, center);
 }
 
 .burgerIcon {

@@ -1,4 +1,5 @@
 import { useSelector, shallowEqual } from 'react-redux';
+import PropTypes from 'prop-types';
 import { getTasks } from '../../../../redux/task/selectors';
 
 
@@ -12,3 +13,11 @@ const useCurrentWeek = (idx) => {
 }
 
 export default useCurrentWeek;
+
+useCurrentWeek.defaultProps = {
+    tasks: []
+}
+
+useCurrentWeek.propTypes = {
+    tasks: PropTypes.array.isRequired
+}

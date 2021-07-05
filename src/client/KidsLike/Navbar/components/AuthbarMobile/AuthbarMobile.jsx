@@ -1,8 +1,6 @@
 import { NavLink } from 'react-router-dom';
 
 import menuItems from '../../menuItems';
-
-
 import styles from './AuthbarMobile.module.scss';
 
 const Authbar = () => {

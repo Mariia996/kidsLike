@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import RewardList from '../../Rewards/components/RewardList';
 import { buyGifts } from '../../../../redux/gift/operations';
-import { ReactComponent as GiftBox } from '../../../../images/Rewards/giftBox.svg';
+import giftBox from '../../../../images/Rewards/giftBox.svg'
 import { getBuyGiftsErrorMessage } from '../../../../redux/gift/seletors';
 import ProgressBar from '../../../../shared/components/ProgressBar';
 import Button from '../../../../shared/components/Button';
@@ -52,7 +52,7 @@ const RewardPage = () => {
         <div className={styles.container}>
             <div className={styles.infoContainer}>
                     <div className={styles.titleContainer}>
-                    <GiftBox className={styles.titleIcon} />
+                        <img src={giftBox} alt="Подарок" className={styles.titleIcon}/>
                     <h2 className={styles.title}>Мои призы</h2>
                 </div>
                 <div className={styles.progressBar}>

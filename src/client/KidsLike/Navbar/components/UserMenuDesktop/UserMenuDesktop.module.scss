@@ -2,7 +2,7 @@
 
 .userMenu {
   @include desktop {
-    @include flex(start, center);
+    @include flex(_, center);
     flex-direction: row-reverse;
   }
 }
@@ -16,7 +16,7 @@
 
 .userContainer {
   @include tablet {
-    @include flex(start, center);
+    @include flex(_, center);
   }
 }
 
@@ -42,7 +42,7 @@
 .navList {
   display: none;
   @include desktop {
-    @include flex(start, center);
+    @include flex(_, center);
     margin-right: 40px;
   }
 }

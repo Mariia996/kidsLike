@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styles from './ButtonTask.module.scss';
 
 const ButtonTask = ({ onClick }) => {
@@ -5,3 +6,11 @@ const ButtonTask = ({ onClick }) => {
 }
 
 export default ButtonTask;
+
+ButtonTask.defaultProps = {
+    onClick: () => {}
+}
+
+ButtonTask.propTypes = {
+    onClick: PropTypes.func
+}

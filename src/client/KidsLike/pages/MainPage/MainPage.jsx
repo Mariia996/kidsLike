@@ -55,7 +55,7 @@ const MainPage = () => {
                         </div>
                     </div>
                     </div>
-                    {filteredTasks.length === 0 ? <TaskMain /> : <TaskList currentTasks={filteredTasks} dayIdx={isActive}/>}
+                {filteredTasks.length === 0 ? <TaskMain /> : <TaskList currentTasks={filteredTasks} dayIdx={isActive} dateNow={dateNow} />}
                     {filteredTasks.length === 0 && <div className={styles.footerContainerDesk}>
                         <Footer />
                     </div>}

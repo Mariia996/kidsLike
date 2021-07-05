@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 import { tabs } from './tabs';
 
 import styles from './TasksDaysList.module.scss';
@@ -28,3 +29,17 @@ const TasksDaysList = ({ startOfWeek, endOfWeek, onClick }) => {
 }
 
 export default TasksDaysList;
+
+TasksDaysList.defaultProps = {
+    startOfWeek: '0',
+    endOfWeek: '- 0',
+    onClick: () => { },
+    tabs: []
+}
+
+TasksDaysList.propTypes = {
+    startOfWeek: PropTypes.string,
+    endOfWeek: PropTypes.string,
+    onClick: PropTypes.func,
+    tabs: PropTypes.array
+}

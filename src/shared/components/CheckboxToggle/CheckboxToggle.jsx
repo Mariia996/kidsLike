@@ -31,18 +31,15 @@ export default CheckboxToggle;
 
 
 CheckboxToggle.defaultProps = {
-  label: '',
   className: '',
-  onChange: () => { },
+  isCompleted: false,
   onClick: () => { }
 }
 
 
 CheckboxToggle.propTypes = {
-  name: PropTypes.string,
   onClick: PropTypes.func,
   className: PropTypes.string,
-  checked: PropTypes.bool,
-  label: PropTypes.string
+  isCompleted: PropTypes.bool.isRequired
 }
 

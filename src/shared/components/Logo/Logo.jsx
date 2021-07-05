@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { ReactComponent as LogoIcon } from './icon/victory.svg';
+import { ReactComponent as LogoIcon } from '../../../images/Logo/logo.svg';
 
 import menuItems from '../../../client/KidsLike/Navbar/menuItems';
 

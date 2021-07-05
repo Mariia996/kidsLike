@@ -1,4 +1,4 @@
-
+import PropTypes from 'prop-types';
 import styles from './ContactsItem.module.scss';
 
 const ContactsItem = ({img, name, position, text}) => {
@@ -14,3 +14,17 @@ const ContactsItem = ({img, name, position, text}) => {
 }
 
 export default ContactsItem;
+
+ContactsItem.defaultProps = {
+    img: '',
+    name: '',
+    position: '',
+    text: ''
+}
+
+ContactsItem.propTypes = {
+    img: PropTypes.string,
+    name: PropTypes.string,
+    position: PropTypes.string,
+    text: PropTypes.string
+}

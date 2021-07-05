@@ -40,7 +40,9 @@ const PlanningItem = ({ title, reward, imageUrl, id}) => {
     })
 
     return (<li className={styles.item}>
-        <img src={imageUrl} alt="" className={styles.img} />
+        <div className={styles.imgContainer}>
+            <img src={imageUrl} alt="" className={styles.img} />
+        </div>
         <div className={styles.cardFooter}>
                 <div className={styles.textContainer}>
                     <p className={styles.title}>{title}</p>

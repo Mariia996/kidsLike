@@ -1,7 +1,8 @@
 import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { ReactComponent as EditIcon } from '../../../../../images/Planning/icons/edit.svg'
-import {ReactComponent as GalleryIcon} from '../../../../../images/Planning/icons/gallery.svg'
+import galleryIcon from '../../../../../images/Planning/icons/gallery.svg'
 import modalImg from '../../../../../images/Planning/planningModal.jpg';
 import useForm from '../../../../../shared/hooks/useForm';
 import { addTask } from '../../../../../redux/task/operations';
@@ -29,7 +30,7 @@ const PlanningModal = ({onClose}) => {
         </div>
         <div className={styles.modalFooter}>
             <form className={styles.form} onSubmit={handleSubmit}>
-                <GalleryIcon className={styles.galleryIcon}/>
+                <img src={galleryIcon} alt="Галерея" className={styles.galleryIcon}/>
                 <EditIcon className={styles.EditIcon1}/>
                 <input type="text" onChange={handleChange} value={data.title} name="title" placeholder="Добавить задание..." className={styles.inputField}  />
                 <EditIcon className={styles.EditIcon2}/>
@@ -41,3 +42,11 @@ const PlanningModal = ({onClose}) => {
 }
 
 export default PlanningModal;
+
+PlanningModal.defaultProps = {
+    onClose: () => {}
+}
+
+PlanningModal.propTypes = {
+    onClose: PropTypes.func
+}

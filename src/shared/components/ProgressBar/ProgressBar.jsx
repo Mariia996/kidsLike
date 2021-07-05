@@ -1,5 +1,7 @@
 import { useSelector, shallowEqual } from 'react-redux';
 import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+
 import { getRewardsGained } from '../../../redux/task/selectors';
 import { getRewardsPlanned } from '../../../redux/task/selectors';
 import { getUpdatedWeekGainedRewards } from '../../../redux/task/selectors';
@@ -33,3 +35,15 @@ const ProgressBar = () => {
 }
 
 export default ProgressBar;
+
+ProgressBar.defaultProps = {
+    rewardsGained: 0,
+    rewardsPlanned: 0,
+    updatedWeekGainedRewards: 0
+}
+
+ProgressBar.propTypes = {
+    rewardsGained: PropTypes.number,
+    rewardsPlanned: PropTypes.number,
+    updatedWeekGainedRewards: PropTypes.number
+}

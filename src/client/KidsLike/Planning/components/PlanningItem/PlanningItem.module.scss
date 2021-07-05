@@ -8,8 +8,13 @@
   position: relative;
 }
 
+.imgContainer {
+  background-color: $white-color;
+}
+
 .img {
   height: 194px;
+  object-fit: contain;
 }
 
 .item:not(:last-child) {

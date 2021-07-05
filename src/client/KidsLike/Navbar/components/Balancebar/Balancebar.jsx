@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useSelector, shallowEqual } from 'react-redux';
+import PropTypes from 'prop-types';
+
 import { getUserBalance } from '../../../../../redux/auth/selectors';
 import { getUpdatedBalance } from '../../../../../redux/task/selectors';
 import styles from './Balancebar.module.scss';
@@ -23,3 +25,13 @@ const Balancebar = () => {
 }
 
 export default Balancebar;
+
+Balancebar.defaultProps = {
+    currentBalance: 0,
+    updatedBalance: 0
+}
+
+Balancebar.propTypes = {
+    currentBalance: PropTypes.number,
+    updatedBalance: PropTypes.number
+}

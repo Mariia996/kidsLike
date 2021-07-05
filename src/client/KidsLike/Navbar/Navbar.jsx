@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useSelector, shallowEqual } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import Logo from '../../../shared/components/Logo';
 import Balancebar from './components/Balancebar';
@@ -43,3 +44,11 @@ const Navbar = () => {
 }
 
 export default Navbar;
+
+Navbar.defaultProps = {
+    isAuthenticated: false
+}
+
+Navbar.propTypes = {
+    isAuthenticated: PropTypes.bool
+}

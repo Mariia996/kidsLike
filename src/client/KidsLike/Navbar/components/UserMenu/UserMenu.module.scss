@@ -1,7 +1,7 @@
 @import '../../../../../shared/styles/base';
 
 .userContainer {
-  @include flex(start, center);
+  @include flex(_, center);
   margin-bottom: 40px;
 }
 

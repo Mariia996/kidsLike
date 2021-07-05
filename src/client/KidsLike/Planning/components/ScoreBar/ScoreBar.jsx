@@ -1,4 +1,5 @@
 import { useSelector, shallowEqual } from 'react-redux';
+import PropTypes from 'prop-types';
 import { getRewardsPlanned } from '../../../../../redux/task/selectors';
 import styles from './ScoreBar.module.scss';
 
@@ -16,3 +17,11 @@ const ScoreBar = () => {
 }
 
 export default ScoreBar;
+
+ScoreBar.defaultProps = {
+    rewardsPlanned: 0
+}
+
+ScoreBar.propTypes = {
+    rewardsPlanned: PropTypes.number
+}
