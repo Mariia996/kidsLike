@@ -14,3 +14,8 @@ const Logo = ({logo, icon}) => {
 }
 
 export default Logo;
+
+Logo.defaultProps = {
+    logo: '',
+    icon: ''
+}

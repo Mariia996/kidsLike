@@ -39,8 +39,10 @@ export default RewardModal;
 
 RewardModal.defaultProps = {
     rewards: [],
+    slectedRewardsIdx: []
 }
 
 RewardModal.propTypes = {
     rewards: PropTypes.array.isRequired,
+    slectedRewardsIdx: PropTypes.array.isRequired
 }

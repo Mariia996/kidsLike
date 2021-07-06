@@ -3,7 +3,6 @@ import axios from "axios";
 class BaseHttpService {
     BASE_URL = 'https://kidslike-v1-backend.goit.global';
 
-
     accessToken = null;
 
     async get(endpoint = '', options = {}) {

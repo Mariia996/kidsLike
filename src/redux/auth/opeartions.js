@@ -56,4 +56,4 @@ export const currentUser = () => async dispatch => {
     catch (error) {
         dispatch(currentUserError(error));
     }
-}
+};

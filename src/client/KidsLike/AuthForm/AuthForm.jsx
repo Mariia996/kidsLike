@@ -20,10 +20,6 @@ const AuthForm = () => {
     const dispatch = useDispatch();
     const [actionType, setActionType] = useState('');
 
-    const onGoogleClick = (e) => {
-
-    };
-
     const onLoginClick = (e) => {
         setActionType('login');
     };
@@ -48,7 +44,7 @@ const AuthForm = () => {
         <div className={styles.formContainer}>
 
         <p className={styles.text}>Вы можете авторизироваться с помощью Google Account:</p>
-        <Button type='submit' onClick={onGoogleClick} className={styles.googleBtn}>
+        <Button type='submit' className={styles.googleBtn}>
             <GoogleIcon className={styles.googleIcon} />
             Google</Button>
 

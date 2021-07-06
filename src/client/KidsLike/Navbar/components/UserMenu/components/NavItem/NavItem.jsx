@@ -10,3 +10,8 @@ const NavItem = ({ to, text }) => {
 }
 
 export default NavItem;
+
+NavItem.defaultProps = {
+    to: '',
+    text: ''
+}

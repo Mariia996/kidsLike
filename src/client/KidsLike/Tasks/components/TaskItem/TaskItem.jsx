@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 
 import CompletedTask from '../CompletedTask';
+import UncompletedTask from '../UncompletedTask/UncompletedTask';
 import CheckboxToggle from '../../../../../shared/components/CheckboxToggle';
 import styles from './TaskItem.module.scss';
 
 const TaskItem = ({ title, imageUrl, reward, days, onClick, dayIdx, dateNow }) => {
     const currentDate = moment().format("dddd, DD-MM-YYYY");
     const exactDate = dateNow === currentDate
-    const previousDate = currentDate < dateNow
-    console.log(previousDate);
+    const previousDate = moment(currentDate).isAfter(dateNow)
 
     const allDaysIsCompleted = days.map(({ isCompleted }) => { return isCompleted });
 
@@ -24,7 +24,9 @@ const TaskItem = ({ title, imageUrl, reward, days, onClick, dayIdx, dateNow }) =
                 <p className={styles.reward}>{reward} балла</p>
             </div>
             <div className={styles.checkbox}>
-            {exactDate && <CheckboxToggle key={v4()} isCompleted={allDaysIsCompleted[dayIdx]}  onClick={onClick}/>}
+                {exactDate && <CheckboxToggle key={v4()} isCompleted={allDaysIsCompleted[dayIdx]} onClick={onClick} />}
+                {previousDate && allDaysIsCompleted[dayIdx] && <CompletedTask />}
+                {previousDate && !allDaysIsCompleted[dayIdx] && <UncompletedTask /> }
             </div>
         </div>
     </li> );

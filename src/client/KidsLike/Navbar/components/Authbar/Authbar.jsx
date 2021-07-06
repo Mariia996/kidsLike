@@ -1,8 +1,6 @@
 import { NavLink } from 'react-router-dom';
 
 import menuItems from '../../menuItems';
-
-
 import styles from './Authbar.module.scss';
 
 const Authbar = () => {
