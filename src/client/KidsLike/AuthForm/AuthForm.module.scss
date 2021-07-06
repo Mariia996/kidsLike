@@ -1,6 +1,13 @@
 @import '../../../shared/styles/base';
 @import '../../../shared/styles/common';
 
+.authFormContainer {
+  @include mobile-end {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+}
+
 .title {
   font-weight: 600;
   font-size: 18px;
@@ -104,5 +111,5 @@
 }
 
 .btnContainer {
-  @include flex();
+  @include flex(center);
 }
