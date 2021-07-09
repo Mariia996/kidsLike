@@ -50,7 +50,7 @@ const PlanningItem = ({ title, reward, imageUrl, id}) => {
                 </div>
                 <form className={styles.form} onSubmit={handleSubmit}>
                     {!toggle && <button type="button" onClick={handleClick} className={styles.btn}>+</button>}
-                    {toggle && <button type="submit" className={styles.submitBtn}>ok</button>}
+                    {toggle && <button type="submit" className={styles.btnSubmit}>ok</button>}
                     {toggle && <ul className={styles.daysList}>{tabsItems}</ul>}
                 </form>
         </div>

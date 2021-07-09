@@ -17,7 +17,7 @@ import styles from './RewardPage.module.scss';
 const RewardPage = () => {
     const dispatch = useDispatch();
     const error = useSelector(state => getBuyGiftsErrorMessage(state), shallowEqual);
-
+    console.log(error);
     const [selectAwards, setSelectAwards] = useState([]);
     const addAward = (id) => {
         if (!selectAwards.includes(id)) {
@@ -66,13 +66,13 @@ const RewardPage = () => {
 
                 </div>
 
-                {openModal && (<Modal onClose={toggleModal}>
-                    {noReward ? <div className={styles.noRewardContainer}>
-                        {!error && <p className={styles.noReward}>Вы не выбрали ни одной награды!</p>}
-                        {error && <p className={styles.noScores}>У вас недостаточно баллов для покупки наград!</p>}
-                    </div>
-                       : <RewardModal />}
-            </Modal>)}
+            <Modal onClose={toggleModal} className={openModal ? styles.modalIsOpen : ''}>
+                {noReward || error ? <div className={styles.noRewardContainer}>
+                    {!error && <p className={styles.noReward}>Вы не выбрали ни одной награды!</p>}
+                    {error && <p className={styles.noScores}>У вас недостаточно баллов для покупки наград!</p>}
+                </div>
+                    : <RewardModal />}
+            </Modal>
 
             <div className={styles.footer}>
                 <Footer />

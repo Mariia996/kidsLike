@@ -18,8 +18,7 @@ const Navbar = () => {
     const isAuthenticated = useSelector((state) => getIsAuthenticated(state), shallowEqual);
 
     const [toggleMenu, setToggleMenu] = useState(false);
-    const handleCkick = (e) => {
-        e.preventDefault();
+    const handleClick = (e) => {
         setToggleMenu(!toggleMenu);
     };
 
@@ -29,11 +28,11 @@ const Navbar = () => {
                 <div className={styles.row}>
                     <div className={styles.logo}><Logo /></div>
                     {isAuthenticated && <Balancebar />}
-                    <BurgerIcon onClick={handleCkick} className={styles.burgerIcon} />
-                    {toggleMenu && <div className={styles.burgerMenu}>
-                        <CloseIcon  onClick={handleCkick} className={styles.closeIcon}/>
-                        {isAuthenticated ? <UserMenu /> : <AuthbarMobile />}
-                    </div>}
+                    <BurgerIcon onClick={handleClick} className={styles.burgerIcon} />
+                    <div className={toggleMenu ? styles.burgerMenuActive : styles.burgerMenu}>
+                        <CloseIcon  onClick={handleClick} className={styles.closeIcon}/>
+                        {isAuthenticated ? <UserMenu onClick={() => handleClick()}/> : <AuthbarMobile onClick={() => handleClick()}/>}
+                    </div>
                     <div className={styles.navbar}>
                         {isAuthenticated ? <UserMenuDesktop/> : <Authbar />}
                     </div>

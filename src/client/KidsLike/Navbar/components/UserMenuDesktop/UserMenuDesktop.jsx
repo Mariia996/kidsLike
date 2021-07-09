@@ -30,7 +30,9 @@ const UserMenuDesktop = () => {
             <div className={styles.userContainer}>
                 <img src={userAvatar} alt="" className={styles.avatar} />
                 <p className={styles.userName}>{userEmail}</p>
-                <LogoutIcon onClick={handleClick} className={styles.logoutIcon}/>
+                <button type="button" onClick={handleClick} className={styles.logoutBtn}>
+                    <LogoutIcon  className={styles.logoutBtnIcon}/>
+                </button>
             </div>
             <ul className={styles.navList}>
                 {itemElements}

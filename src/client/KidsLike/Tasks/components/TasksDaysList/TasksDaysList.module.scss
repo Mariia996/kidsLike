@@ -64,11 +64,10 @@
     margin-top: 0;
     margin-left: 0;
   }
-}
-
-.btnItem:not(:last-child) {
-  @include desktop {
-    margin-bottom: 6px;
+  &:not(:last-child) {
+    @include desktop {
+      margin-bottom: 6px;
+    }
   }
 }
 
@@ -84,6 +83,8 @@
   border: none;
   border-radius: 4px;
   transition: background-color 250ms linear;
+  cursor: pointer;
+  outline: none;
   @include tablet {
     width: 40px;
     height: 26px;
@@ -98,13 +99,12 @@
     line-height: 1.214;
     border-radius: 6px 0px 0px 6px;
   }
-}
-
-.daysBtn:hover,
-.daysBtn:focus {
-  background-color: $accent-color;
-  @include tablet {
-    background-color: $white-color;
+  &:hover,
+  &:focus {
+    background-color: $accent-color;
+    @include tablet {
+      background-color: $white-color;
+    }
   }
 }
 
@@ -121,10 +121,9 @@
   @include desktop {
     display: none;
   }
-}
-
-.textDesk {
-  @include tablet-end {
-    display: none;
+  &Desk {
+    @include tablet-end {
+      display: none;
+    }
   }
 }

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { ReactComponent as CloseIcon } from './CloseIcon/close.svg';
 import styles from './Modal.module.scss';
 
-const Modal = ({ children, onClose }) => {
+const Modal = ({ children, onClose, className }) => {
     useEffect(() => {
         window.addEventListener('keydown', handleKeyDown);
         return () => {
@@ -31,7 +31,7 @@ const Modal = ({ children, onClose }) => {
 
     const modalRoot = document.querySelector('#modal-root');
     return (
-        createPortal(<div className={styles.backdrop} onClick={handleBackdropClick}>
+        createPortal(<div className={`${styles.backdrop} ${className}`} onClick={handleBackdropClick}>
             <div className={styles.modalLayout}>
                 <div className={styles.modalContent}>
                     <CloseIcon className={styles.closeBtnIcon} onClick={onClose}/>

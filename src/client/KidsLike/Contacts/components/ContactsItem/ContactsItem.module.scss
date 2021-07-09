@@ -4,11 +4,10 @@
   background-color: $white-color;
   box-shadow: 4px 6px 15px rgba(0, 0, 0, 0.1);
   border-radius: 6px;
-}
-
-.contactsItem:not(:last-child) {
-  @include mobile-end {
-    margin-bottom: 20px;
+  &:not(:last-child) {
+    @include mobile-end {
+      margin-bottom: 20px;
+    }
   }
 }
 

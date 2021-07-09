@@ -16,14 +16,10 @@
 .burgerIcon {
   margin-left: auto;
   @include tablet {
-    & {
-      margin-right: 40px;
-    }
+    margin-right: 40px;
   }
   @include desktop {
-    & {
-      display: none;
-    }
+    display: none;
   }
 }
 
@@ -33,13 +29,20 @@
   right: 0;
   height: 100%;
   min-width: 274px;
-  padding-top: 36px;
   z-index: 100;
   background-color: $primary-bg-color;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 250ms linear, visibility 250ms linear;
   @include desktop {
-    & {
-      display: none;
-    }
+    display: none;
+  }
+  &Active {
+    composes: burgerMenu;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: visible;
   }
 }
 
@@ -49,14 +52,13 @@
   right: 20px;
   width: 14px;
   height: 14px;
+  cursor: pointer;
 }
 
 .navbar {
   display: none;
   @include tablet {
-    & {
-      display: block;
-    }
+    display: block;
   }
   @include desktop {
     margin-left: auto;

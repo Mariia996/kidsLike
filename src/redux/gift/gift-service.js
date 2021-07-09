@@ -7,7 +7,9 @@ class GiftsServise extends BaseHttpService {
             const data = await this.get('gift');
             return data;
         }
-        catch (error) {}
+        catch (error) {
+            throw error
+        }
     }
     async buyGifts(body) {
         try {
@@ -15,7 +17,9 @@ class GiftsServise extends BaseHttpService {
             const data = await this.patch('gift', body);
             return data;
         }
-        catch (error) {}
+        catch (error) {
+            throw error
+        }
     }
 }
 

@@ -99,3 +99,9 @@
   text-transform: uppercase;
   text-align: center;
 }
+
+.modalIsOpen {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: visible;
+}

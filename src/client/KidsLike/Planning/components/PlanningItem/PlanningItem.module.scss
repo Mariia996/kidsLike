@@ -7,33 +7,27 @@
   box-shadow: 4px 6px 15px rgba(0, 0, 0, 0.1);
   position: relative;
   background-color: $primary-bg-color;
-}
-
-.imgContainer {
-  background-color: $white-color;
-  border-radius: 6px 6px 0px 0px;
+  &:not(:last-child) {
+    @include mobile-end {
+      margin-bottom: 10px;
+    }
+  }
 }
 
 .img {
   height: 194px;
   object-fit: contain;
   border-radius: 6px 6px 0px 0px;
-}
-
-.item:not(:last-child) {
-  @include mobile-end {
-    margin-bottom: 10px;
+  &Container {
+    background-color: $white-color;
+    border-radius: 6px 6px 0px 0px;
   }
 }
 
 .cardFooter {
   padding: 14px 20px;
   background-color: $primary-bg-color;
-  @include flex();
   border-radius: 0px 0px 6px 6px;
-}
-
-.cardFooter {
   @include flex(space-between);
 }
 
@@ -68,28 +62,33 @@
   border: none;
   outline: none;
   background-color: $white-color;
-}
-
-.submitBtn {
-  font-size: inherit;
-  line-height: inherit;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: $third-bg-color;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  border: none;
-  outline: none;
-  background-color: $white-color;
+  cursor: pointer;
+  padding: 0;
+  padding-top: 2px;
+  transition: box-shadow 250ms linear;
+  &:hover,
+  &:focus {
+    box-shadow: 0px 1px 4px 2px rgba(0, 0, 0, 0.15);
+  }
+  &Submit {
+    composes: btn;
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: box-shadow 250ms linear;
+    &:hover,
+    &:focus {
+      box-shadow: 0px 1px 4px 2px rgba(0, 0, 0, 0.15);
+    }
+  }
 }
 
 .daysItem {
   width: 44px;
-}
-
-.daysItem:not(:last-child) {
-  margin-bottom: 10px;
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
 }
 
 .daysList {
@@ -110,22 +109,21 @@
 .inputLabel {
   font-weight: 700;
   color: $white-color;
-}
-
-.inputLabel::before {
-  content: '';
-  display: inline-block;
-  width: 14px;
-  height: 14px;
-  border: 1px solid $white-color;
-  border-radius: 2px;
-  margin-right: 10px;
-  vertical-align: text-top;
-
-  .inputField:checked + & {
-    background-color: $white-color;
-    background-image: url('../../../../../images/Planning/icons/vector.svg');
-    background-repeat: no-repeat;
-    background-position: center;
+  cursor: pointer;
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border: 1px solid $white-color;
+    border-radius: 2px;
+    margin-right: 10px;
+    vertical-align: text-top;
+    .inputField:checked + & {
+      background-color: $white-color;
+      background-image: url('../../../../../images/Planning/icons/vector.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+    }
   }
 }

@@ -11,7 +11,7 @@ import { ReactComponent as LogoutIcon } from '../../../../../images/Navbar/icons
 
 import styles from './UserMenu.module.scss';
 
-const UserMenu = () => {
+const UserMenu = ({onClick}) => {
     const dispatch = useDispatch();
     const userEmail = useSelector(state => getUserEmail(state), shallowEqual);
 
@@ -21,7 +21,7 @@ const UserMenu = () => {
 
     const itemElements = menuItems.map((props) => {
         return (
-            <NavItem key={v4()} {...props} />
+            <NavItem key={v4()} onClick={onClick} {...props} />
         );
     });
 
@@ -30,7 +30,9 @@ const UserMenu = () => {
             <div className={styles.userContainer}>
                 <img src={userAvatar} alt="" className={styles.avatar} />
                 <p className={styles.userName}>{userEmail}</p>
-                <LogoutIcon onClick={handleClick} className={styles.logoutIcon}/>
+                <button type="button" onClick={handleClick} className={styles.logoutBtn}>
+                    <LogoutIcon  className={styles.logoutBtnIcon}/>
+                </button>
             </div>
             <ul className={styles.navList}>
                 {itemElements}

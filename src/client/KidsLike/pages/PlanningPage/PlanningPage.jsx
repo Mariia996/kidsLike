@@ -48,9 +48,9 @@ const PlanningPage = () => {
         <div className={styles.scoreBarContainerMob}>
             <ScoreBar/>
         </div>
-            {openModal && <Modal onClose={toggleModal}>
+            <Modal onClose={toggleModal} className={openModal ? styles.modalIsOpen : ''}>
                     <PlanningModal onClose={toggleModal}/>
-                </Modal>}
+                </Modal>
         </>
      );
 }

@@ -1,6 +1,7 @@
 @import '../../../../../shared/styles/base';
 
 .authbar {
+  padding-top: 50px;
   @include tablet {
     display: none;
   }
@@ -14,10 +15,9 @@
 .linkItem {
   padding: 14px 30px;
   border-top: 1px solid $white-color;
-}
-
-.linkItem:last-child {
-  border-bottom: 1px solid $white-color;
+  &:last-child {
+    border-bottom: 1px solid $white-color;
+  }
 }
 
 .navLink {

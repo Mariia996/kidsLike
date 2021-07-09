@@ -103,3 +103,9 @@
   font-weight: 500;
   color: $third-text-color;
 }
+
+.modalIsOpen {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: visible;
+}
